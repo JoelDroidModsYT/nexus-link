@@ -113,4 +113,27 @@ body{background:var(--paper)!important;color:var(--ink);font-family:Manrope,Aria
   if(slug){try{var clean=location.pathname.replace(/[^\/]*$/,"")+"?g="+encodeURIComponent(slug);if(location.search!=="?g="+encodeURIComponent(slug))history.replaceState(null,"",clean)}catch(e){}readPublished(0,false);function startPolling(){if(refreshTimer)return;refreshTimer=setInterval(function(){readPublished(0,true)},120000)}function stopPolling(){if(refreshTimer){clearInterval(refreshTimer);refreshTimer=null}}startPolling();document.addEventListener("visibilitychange",function(){if(document.hidden){stopPolling()}else{readPublished(0,true);startPolling()}})}else{showHome()}
   var legal={privacy:["Política de privacidad","Nexus Link procesa únicamente la información técnica necesaria para preparar los enlaces. Los sitios de destino tienen sus propias políticas."],terms:["Términos y condiciones","Nexus Link facilita el acceso a enlaces publicados por creadores asociados. Usa cada archivo bajo tu responsabilidad y respeta sus licencias."],report:["Reportar un archivo","Si un enlace está roto o parece inseguro, comunícate con joeldroidmods e incluye el nombre del juego."]};document.querySelectorAll("[data-legal]").forEach(function(b){b.onclick=function(){var x=legal[b.dataset.legal];setText("legalTitle",x[0]);$("legalBody").innerHTML="<p>"+x[1]+"</p>";$("legalOverlay").classList.add("open")}});$("close").onclick=function(){$("legalOverlay").classList.remove("open")};
 })();
+</script><div id="waiting" aria-hidden="true"><div class="flow-page"><div class="flow-content">
+<p class="flow-kicker">DESBLOQUEANDO DESCARGA</p><h2>Preparando tu archivo</h2>
+<p class="flow-copy">Espera unos segundos mientras verificamos el enlace de <b id="waitingGame"></b>.</p>
+<div class="ring" id="ring"><div class="count-face"><strong><span id="count">8</span><small>SEGUNDOS</small></strong><div class="prep-track"><i id="prepBar"></i></div></div>
+<a class="ready" id="ready" href="#" rel="noopener"><span class="ready-arrow">↓</span><strong>DESCARGAR AHORA</strong><span>ENLACE LISTO</span></a></div>
+</div></div></div>
+<style>#waiting{position:fixed;inset:0;z-index:9999;display:none}#waiting.open{display:block}.ring .ready{display:none}.ring .ready.show{display:block;text-decoration:none}</style>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  var dl=document.getElementById("download"),w=document.getElementById("waiting"),rd=document.getElementById("ready"),
+      ring=document.getElementById("ring"),cnt=document.getElementById("count"),bar=document.getElementById("prepBar"),timer=null;
+  dl.addEventListener("click",function(e){
+    var url=dl.getAttribute("href");
+    if(!url||url==="#"){e.preventDefault();return}
+    e.preventDefault();
+    rd.href=url;rd.classList.remove("show");ring.classList.remove("ready-state");
+    var n=8;cnt.textContent=n;bar.style.width="0%";
+    w.classList.add("open");w.setAttribute("aria-hidden","false");
+    clearInterval(timer);
+    timer=setInterval(function(){n--;cnt.textContent=Math.max(n,0);bar.style.width=((8-n)/8*100)+"%";
+      if(n<=0){clearInterval(timer);ring.classList.add("ready-state");rd.classList.add("show")}},1000);
+  },true);
+});
 </script></body></html>
