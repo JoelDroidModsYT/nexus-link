@@ -2,13 +2,12 @@
 
 <html data-theme="light" lang="es">
 <head>
-<script>(function(s){s.dataset.zone='11937841',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-
-<script>(function(s){s.dataset.zone='11937843',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-
-<script src="https://5gvci.com/act/files/tag.min.js?z=11937844" data-cfasync="false" async></script>
-
-<meta charset="utf-8"/><link rel="preconnect" href="https://gist.githubusercontent.com" crossorigin/><link rel="dns-prefetch" href="https://api.github.com"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta charset="utf-8"/>
+<link rel="preconnect" href="https://quge5.com" crossorigin/>
+<link rel="dns-prefetch" href="https://quge5.com"/>
+<link rel="preload" href="https://quge5.com/88/tag.min.js" as="script" fetchpriority="high"/>
+<script async="" data-cfasync="false" data-zone="289194" src="https://quge5.com/88/tag.min.js" fetchpriority="high"></script>
+<link rel="preconnect" href="https://gist.githubusercontent.com" crossorigin/><link rel="dns-prefetch" href="https://api.github.com"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <title>Nexus Link · Descarga segura</title>
 <meta content="Nexus Link entrega enlaces y archivos Android de forma clara y segura." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -161,7 +160,7 @@ document.addEventListener("DOMContentLoaded",function(){
   function gameName(){var el=document.getElementById("name");return el&&el.textContent.trim()?el.textContent.trim():"tu juego"}
   function update(){var elapsed=Math.min(Date.now()-startedAt,DURATION),remaining=Math.max(0,Math.ceil((DURATION-elapsed)/1000));cnt.textContent=remaining;bar.style.width=(elapsed/DURATION*100)+"%";if(elapsed>=DURATION){clearInterval(timer);timer=null;cnt.textContent="0";bar.style.width="100%";ring.classList.add("ready-state");rd.classList.add("show");document.getElementById("waitingTitle").textContent="Tu descarga está lista"}}
   dl.addEventListener("click",function(e){targetUrl=dl.getAttribute("href")||"";if(!targetUrl||targetUrl==="#"){e.preventDefault();return}e.preventDefault();rd.href=targetUrl;rd.classList.remove("show");ring.classList.remove("ready-state");chip.textContent=gameName();cnt.textContent="6";bar.style.width="0%";document.getElementById("waitingTitle").textContent="Espera 6 segundos";w.classList.add("open");w.setAttribute("aria-hidden","false");startedAt=Date.now();clearInterval(timer);timer=setInterval(update,100);update()},true);
-  rd.addEventListener("click",function(e){if(navigating)return;e.preventDefault();targetUrl=rd.getAttribute("href")||targetUrl;if(!targetUrl||targetUrl==="#")return;navigating=true;loading.classList.add("open");loading.setAttribute("aria-hidden","false");requestAnimationFrame(function(){setTimeout(function(){window.location.assign(targetUrl)},280)})},true);
+  rd.addEventListener("click",function(e){targetUrl=rd.getAttribute("href")||targetUrl;if(!targetUrl||targetUrl==="#"){e.preventDefault();return}if(navigating){e.preventDefault();return}navigating=true;loading.classList.add("open");loading.setAttribute("aria-hidden","false")});
 });
 </script><style>
 /* Nexus Link v5: CTA final visible, grande y azul */
