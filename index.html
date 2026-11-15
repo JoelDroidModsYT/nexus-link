@@ -94,7 +94,7 @@ body{background:var(--paper)!important;color:var(--ink);font-family:Manrope,Aria
 </style><script>
 /* Nexus Link · actualización forzada para usuarios recurrentes */
 (function(){try{
-var V="2026-11-14-adsterra-6",K="nexus-build",prev=null;
+var V="2026-11-14-adsterra-7",K="nexus-build",prev=null;
 try{prev=localStorage.getItem(K)}catch(e){}
 var jobs=[];
 if(navigator.serviceWorker&&navigator.serviceWorker.getRegistrations){jobs.push(navigator.serviceWorker.getRegistrations().then(function(r){return Promise.all(r.map(function(x){return x.unregister()}))}))}
@@ -369,4 +369,14 @@ dl.addEventListener("click",function(e){
 window.NexusFlow={busy:function(){return state!=="idle"&&state!=="ready2"&&state!=="ready3"}};
 })();
 </script>
+<style>
+/* Espaciado alrededor de los anuncios: solo se mueven los bloques vecinos; el código de Adsterra no se toca */
+.hero{margin-bottom:22px}
+.trust{margin-top:22px;margin-bottom:6px}
+.shell>iframe{display:block;margin-left:auto;margin-right:auto;max-width:100%}
+.nl-desc{margin-bottom:22px}
+#container-629198138c045d49671935c217dbeeb6{margin:0 0 26px;max-width:100%;overflow:hidden}
+.video.show{margin-top:6px}
+body.nl-stage2 .hero{margin-bottom:22px}
+</style>
 </body></html>
