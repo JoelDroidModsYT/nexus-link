@@ -92,17 +92,6 @@ body{background:var(--paper)!important;color:var(--ink);font-family:Manrope,Aria
 .download:before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 20%,#ffffff26 48%,transparent 70%);transform:translateX(-120%);animation:scanCta 2.3s ease-in-out infinite}.download .download-label{font-size:clamp(15px,4.6vw,19px);line-height:1.2}.download #buttonDetail{color:#c9f8ff;font-weight:700}.download-arrow{color:#8bf5ff;text-shadow:0 0 14px #8bf5ff}
 #waiting{background:#050b16!important}.flow-page{background:radial-gradient(circle at 50% 32%,#0a3153 0%,#071426 34%,#040913 74%)!important;color:#effbff!important}.flow-page:before{display:block!important;content:"";position:absolute;inset:0!important;width:auto!important;height:auto!important;border:0!important;transform:none!important;background-image:linear-gradient(#39dfff12 1px,transparent 1px),linear-gradient(90deg,#39dfff12 1px,transparent 1px);background-size:30px 30px;mask-image:linear-gradient(to bottom,transparent,#000 24%,#000 72%,transparent)}.flow-head{border-color:#29d8ff42!important}.flow-head b{color:#f4fdff}.flow-head small{color:#6fdcf0!important}.flow-content{z-index:2}.steps i{background:#123655!important}.steps i.on{background:#44e5ff!important;box-shadow:0 0 14px #37dcff}.flow-kicker{color:#58e8ff!important;letter-spacing:.16em!important}.flow-content h2{color:#f6fdff;text-transform:uppercase;letter-spacing:.02em;text-shadow:0 0 22px #20cfff3b}.flow-copy{color:#a8c7d9!important}.ring{--p:0;width:min(280px,78vw)!important;height:min(280px,78vw)!important;margin:22px auto 18px!important;padding:12px!important;border-radius:50%!important;border:1px solid #41e5ff99!important;background:conic-gradient(#57f39a calc(var(--p)*1%),#25d7ff calc(var(--p)*1%),#12304a 0)!important;box-shadow:0 0 0 7px #061424,0 0 0 8px #28ddff52,0 0 45px #20ceff35!important;display:grid!important;place-items:center!important;position:relative!important}.ring:before{display:block!important;content:"";position:absolute;inset:12px!important;width:auto!important;height:auto!important;border:1px solid #2fdcff55!important;border-radius:50%!important;background:#071426!important;animation:none!important}.ring .count-face{position:relative;z-index:2;display:grid!important;place-items:center!important;width:calc(100% - 24px)!important;height:calc(100% - 24px)!important}.ring strong{display:grid!important;justify-items:center!important;gap:0!important;font-family:"Space Mono",monospace;color:#73edff!important;text-shadow:0 0 20px #2bdeff;font-size:76px!important;line-height:1}.ring small{margin-top:10px;color:#89aabc!important;font-size:10px!important;letter-spacing:.18em}.prep-track{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);width:58%;height:4px!important;background:#163d59!important}.prep-track i{background:#56f39a!important;box-shadow:0 0 12px #56f39a}.guide{border:1px solid #26d7ff5c!important;background:#081a2d!important;color:#b8d8e7!important;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));border-radius:0!important}.game-chip{border-color:#53ee9d66!important;background:#071b2a!important;color:#66f5ac!important;border-radius:6px!important;box-shadow:0 0 20px #40ec9a17!important}.ring.ready-state{width:100%!important;height:auto!important;border-radius:10px!important;border:0!important;background:transparent!important;box-shadow:none!important;padding:0!important}.ring.ready-state:before{display:none!important}.ring .ready{position:relative!important;min-height:96px!important;border:1px solid #73ffa8!important;border-radius:8px!important;background:linear-gradient(120deg,#08794d,#12b96f)!important;color:#f3fff8!important;box-shadow:0 0 28px #35ed9266,0 16px 34px #021b124f!important;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px))!important}.ring .ready strong{display:block!important;color:#f3fff8!important;text-shadow:none!important;font-family:Manrope,sans-serif!important;font-size:17px!important}.ring .ready span:last-child{color:#caffdf}.ring.ready-state .count-face{display:none!important}@keyframes scanCta{0%,35%{transform:translateX(-120%)}70%,100%{transform:translateX(120%)}}@media(max-height:700px){.ring{width:210px!important;height:210px!important;margin:12px auto!important}.ring strong{font-size:58px!important}.prep-track{bottom:20px}.flow-content h2{font-size:23px}}@media(prefers-reduced-motion:reduce){.download:before{animation:none}}
 </style><script>
-/* Nexus Link · actualización forzada para usuarios recurrentes */
-(function(){try{
-var V="2026-11-14-adsterra-7",K="nexus-build",prev=null;
-try{prev=localStorage.getItem(K)}catch(e){}
-var jobs=[];
-if(navigator.serviceWorker&&navigator.serviceWorker.getRegistrations){jobs.push(navigator.serviceWorker.getRegistrations().then(function(r){return Promise.all(r.map(function(x){return x.unregister()}))}))}
-if(window.caches&&caches.keys){jobs.push(caches.keys().then(function(k){return Promise.all(k.map(function(x){return caches.delete(x)}))}))}
-Promise.all(jobs).catch(function(){}).then(function(){
-try{localStorage.setItem(K,V)}catch(e){}
-if(prev!==V&&!/[?&]_v=/.test(location.search)){var u=new URL(location.href);u.searchParams.set("_v",V);location.replace(u.toString())}
-})}catch(e){}})();
 </script><script>
 document.addEventListener("DOMContentLoaded",function(){
   var hasGame=new URLSearchParams(location.search).has("g")||new URLSearchParams(location.search).has("id")||location.hash.length>1||location.pathname.split("/").filter(Boolean).some(function(p){return !/^(index|inicio)\.html?$/i.test(p)});
@@ -379,4 +368,25 @@ window.NexusFlow={busy:function(){return state!=="idle"&&state!=="ready2"&&state
 .video.show{margin-top:6px}
 body.nl-stage2 .hero{margin-bottom:22px}
 </style>
+<style>
+/* Etapas 2 y 3 compactas: el botón sube y los anuncios quedan más arriba */
+body.nl-stage2 .hero h1,body.nl-stage2 .hero .subtitle,body.nl-stage2 .hero .game-chip{display:none!important}
+body.nl-stage2 .hero{padding:14px 16px 14px!important;margin-bottom:16px}
+body.nl-stage2 .nl-stage{margin:0 0 6px}
+body.nl-stage2 .nl-kick{font-size:9px}
+body.nl-stage2 .nl-stage h2{font-size:18px;margin:2px 0 8px}
+body.nl-stage2 .nl-ring{width:76px;height:76px;margin:0 auto 6px}
+body.nl-stage2 .nl-ring-num{font-size:28px}
+body.nl-stage2 .nl-stage p{margin:0 0 4px;font-size:12px}
+body.nl-stage2 .download{min-height:72px!important;margin-top:8px!important}
+body.nl-stage2 .hint{margin-top:8px;font-size:11px}
+</style>
+<script>
+/* Si el destino final no abre, la pantalla "Redireccionando" no se queda girando */
+(function(){var fl=document.getElementById("finalLoading");if(!fl)return;
+function hide(){fl.classList.remove("open");fl.setAttribute("aria-hidden","true")}
+document.addEventListener("visibilitychange",function(){if(!document.hidden&&fl.classList.contains("open"))setTimeout(hide,600)});
+new MutationObserver(function(){if(fl.classList.contains("open"))setTimeout(hide,7000)}).observe(fl,{attributes:true,attributeFilter:["class"]});
+window.addEventListener("pageshow",hide)})();
+</script>
 </body></html>
