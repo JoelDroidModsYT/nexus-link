@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!-- AdMaven: dentro de <head>, tal como indica su ayuda -->
+<script data-cfasync="false" src="https://d7oc8z3lu6svo.cloudfront.net/?lzcod=1735632"></script>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
 <title>Nexus Link · Descarga de enlaces</title>
 <meta name="description" content="Nexus Link entrega enlaces y archivos Android de forma clara y sencilla.">
@@ -214,7 +216,7 @@ html[data-theme=dark] body{background:var(--bg) radial-gradient(760px 380px at 5
     <p id="nlStSub"></p>
   </div>
   <div class="err" id="err" role="alert"><b id="errT"></b><p id="errM"></p></div>
-  <a class="download" href="#" id="download" aria-live="polite"><span class="download-arrow" aria-hidden="true">↓</span><span class="download-label" id="buttonText"></span><span class="d" id="buttonDetail"></span></a>
+  <a class="download" href="javascript:void(0)" id="download" aria-live="polite"><span class="download-arrow" aria-hidden="true">↓</span><span class="download-label" id="buttonText"></span><span class="d" id="buttonDetail"></span></a>
   <p class="hint" id="nlHint"></p>
 </section>
 <section class="trust"><div><i>✓</i><b data-i18n="trust_free">Gratis</b></div><div><i>⌁</i><b data-i18n="trust_direct">Enlace directo</b></div><div><i>⬡</i><b data-i18n="trust_android">Listo para Android</b></div></section>
@@ -462,7 +464,7 @@ function paint(f){
 }
 function unpaint(){dl.style.removeProperty("background")}
 function count(sec,k,next){
-  setState(k);dl.classList.add("nl-counting");dl.setAttribute("href","#");
+  setState(k);dl.classList.add("nl-counting");dl.setAttribute("href","javascript:void(0)");
   var start=Date.now(),total=sec*1000;
   function tick(){
     var el=Date.now()-start,f=Math.min(1,el/total);left=Math.max(0,Math.ceil((total-el)/1000));
@@ -494,7 +496,7 @@ function refreshFlowText(){
   if(errState)paintErr();
 }
 function proceed(w){clearTimeout(fb);if(state!==w)return;
-  if(w==="w1"){enterStage2();count(T2,"c2",function(){ready("ready3","#");finishStage2()})}
+  if(w==="w1"){enterStage2();count(T2,"c2",function(){ready("ready3","javascript:void(0)");finishStage2()})}
   else{redirect()}
 }
 function goAd(w){state=w;hiddenSeen=document.hidden===true;clearTimeout(fb);
@@ -516,13 +518,12 @@ document.addEventListener("visibilitychange",function(){
 });
 window.addEventListener("focus",function(){if(hiddenSeen&&(state==="w1"||state==="w2")){var w=state;setTimeout(function(){proceed(w)},400)}});
 window.addEventListener("pageshow",function(e){if(e.persisted)location.reload()});
-dl.addEventListener("click",function(e){
-  var c=current;if(!c||!c.url){e.preventDefault();return}
-  if(state==="idle"){e.preventDefault();try{window.NexusStats.track("start")}catch(x){}count(T1,"c1",function(){ready("ready2","#")});return}
-  /* ready2 / ready3: el enlace nativo abre el anuncio en pestaña nueva con un clic real del usuario */
-  if(state==="ready2"){e.preventDefault();state="w1";proceed("w1");return}
-  if(state==="ready3"){e.preventDefault();state="w2";proceed("w2");return}
-  e.preventDefault();
+/* Los clics NO se cancelan (sin preventDefault): así el script de AdMaven los recibe como clics reales del usuario */
+dl.addEventListener("click",function(){
+  var c=current;if(!c||!c.url)return;
+  if(state==="idle"){try{window.NexusStats.track("start")}catch(x){}count(T1,"c1",function(){ready("ready2","javascript:void(0)")});return}
+  if(state==="ready2"){state="w1";proceed("w1");return}
+  if(state==="ready3"){state="w2";proceed("w2");return}
 });
 
 /* ---------- Inicio ---------- */
