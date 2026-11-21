@@ -51,7 +51,7 @@ img{max-width:100%}
 .ib{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);padding:0;box-shadow:var(--shadow-s)}
 .ib:hover{border-color:var(--accent)}
 .ib svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-.flag{width:24px;height:16px;border-radius:3px;display:block;box-shadow:0 0 0 1px #0002}
+.fl{display:inline-block;position:relative;width:28px;height:20px;border-radius:7px;overflow:hidden;flex:none;vertical-align:middle;box-shadow:inset 0 0 0 1px #ffffff55,0 3px 10px #0b1a4a38}.fl svg{display:block;width:100%;height:100%}.ib .fl svg,.langmenu .fl svg,.seg .fl svg{width:100%;height:100%;stroke:none;stroke-width:0}.fl:after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,#ffffff6e 0,#ffffff00 42%,#0000002e 100%);pointer-events:none}
 .langmenu{position:absolute;top:48px;right:0;min-width:190px;padding:6px;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow);z-index:40}
 .langmenu button{display:flex;align-items:center;gap:10px;width:100%;padding:10px 12px;border:0;border-radius:10px;background:none;text-align:left;font-weight:700;font-size:14px}
 .langmenu button:hover,.langmenu button[aria-checked=true]{background:var(--chip)}
@@ -161,6 +161,30 @@ html[data-theme=dark] .err{background:#2a1118;border-color:#5b2230;color:#ffb3c0
 .loading-card p{margin:0;color:var(--accent);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
 .loading-card h2{margin:6px 0;font-size:20px}.loading-card b{display:block;overflow-wrap:anywhere}.loading-card small{display:block;margin-top:8px;color:var(--muted)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* Acabado visual (estático, sin animaciones) */
+body{background:var(--bg) radial-gradient(760px 380px at 50% -140px,#1265e82e,transparent 72%) no-repeat,linear-gradient(180deg,var(--bg2) 0,var(--bg) 460px) no-repeat}
+html[data-theme=dark] body{background:var(--bg) radial-gradient(760px 380px at 50% -140px,#2f7bf033,transparent 72%) no-repeat,linear-gradient(180deg,var(--bg2) 0,var(--bg) 460px) no-repeat}
+.hero{position:relative;overflow:hidden;border-radius:26px;padding:24px 22px 22px}
+.hero:before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--btn)}
+.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,#1688f41f,transparent 70%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.verified{border:1px solid color-mix(in srgb,var(--accent) 22%,transparent)}
+.hero h1{background:linear-gradient(100deg,var(--ink) 30%,var(--accent) 130%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cover{border-radius:18px;box-shadow:0 14px 34px #0b1a4a2e;border:1px solid var(--line)}
+.publisher{border-radius:18px;background:linear-gradient(135deg,var(--surface2),var(--chip))}
+.download{border-radius:20px;overflow:hidden;box-shadow:0 16px 34px #1265e84d,inset 0 1px 0 #ffffff40}
+.download:before{content:"";position:absolute;left:0;right:0;top:0;height:50%;background:linear-gradient(180deg,#ffffff26,#ffffff00);pointer-events:none}
+.download>*{position:relative}
+.trust div{border-radius:18px;background:linear-gradient(180deg,var(--surface),var(--surface2))}
+.section h2{display:flex;align-items:center;gap:10px}
+.section h2:before{content:"";flex:none;width:5px;height:20px;border-radius:3px;background:var(--btn)}
+.nl-desc,.nl-card,.nl-steps li,.nl-faq details{border-radius:20px}
+.nl-steps b{background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 6px 14px #1265e83a}
+.nl-card{background:linear-gradient(180deg,var(--surface),var(--surface2))}
+.legal{border-top:0;position:relative}
+.legal:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+.ib{background:linear-gradient(180deg,var(--surface),var(--surface2))}
 </style>
 </head>
 <body>
@@ -276,10 +300,9 @@ var slug="",current=null,state="idle";
 /* ---------- Idioma ---------- */
 function t(k,v){var s=(I18N[lang]&&I18N[lang][k])||I18N.es[k]||k;if(v)for(var x in v)s=s.split("{"+x+"}").join(v[x]);return s}
 var FLAGS={
- es:'<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#d91023"/><rect x="8" width="8" height="16" fill="#fff"/></svg>',
- en:'<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#fff"/><g fill="#b22234"><rect width="24" height="1.23"/><rect y="2.46" width="24" height="1.23"/><rect y="4.92" width="24" height="1.23"/><rect y="7.38" width="24" height="1.23"/><rect y="9.85" width="24" height="1.23"/><rect y="12.3" width="24" height="1.23"/><rect y="14.77" width="24" height="1.23"/></g><rect width="10.5" height="8.6" fill="#3c3b6e"/></svg>',
- pt:'<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#009c3b"/><path d="M12 2.2L21.4 8 12 13.8 2.6 8z" fill="#ffdf00"/><circle cx="12" cy="8" r="3.3" fill="#002776"/></svg>'
-};
+ es:'<span class="fl"><svg viewBox="0 0 28 20" preserveAspectRatio="none" aria-hidden="true"><rect width="28" height="20" fill="#c60b1e"/><rect y="5" width="28" height="10" fill="#ffc400"/></svg></span>',
+ en:'<span class="fl"><svg viewBox="0 0 28 20" preserveAspectRatio="none" aria-hidden="true"><rect y="0.00" width="28" height="1.56" fill="#b22234"/><rect y="1.54" width="28" height="1.56" fill="#ffffff"/><rect y="3.08" width="28" height="1.56" fill="#b22234"/><rect y="4.62" width="28" height="1.56" fill="#ffffff"/><rect y="6.15" width="28" height="1.56" fill="#b22234"/><rect y="7.69" width="28" height="1.56" fill="#ffffff"/><rect y="9.23" width="28" height="1.56" fill="#b22234"/><rect y="10.77" width="28" height="1.56" fill="#ffffff"/><rect y="12.31" width="28" height="1.56" fill="#b22234"/><rect y="13.85" width="28" height="1.56" fill="#ffffff"/><rect y="15.38" width="28" height="1.56" fill="#b22234"/><rect y="16.92" width="28" height="1.56" fill="#ffffff"/><rect y="18.46" width="28" height="1.56" fill="#b22234"/><rect width="12.6" height="10.77" fill="#1f2a6b"/><circle cx="2" cy="1.8" r=".55" fill="#fff"/><circle cx="2" cy="4.2" r=".55" fill="#fff"/><circle cx="2" cy="6.6" r=".55" fill="#fff"/><circle cx="2" cy="9" r=".55" fill="#fff"/><circle cx="4.8" cy="1.8" r=".55" fill="#fff"/><circle cx="4.8" cy="4.2" r=".55" fill="#fff"/><circle cx="4.8" cy="6.6" r=".55" fill="#fff"/><circle cx="4.8" cy="9" r=".55" fill="#fff"/><circle cx="7.6" cy="1.8" r=".55" fill="#fff"/><circle cx="7.6" cy="4.2" r=".55" fill="#fff"/><circle cx="7.6" cy="6.6" r=".55" fill="#fff"/><circle cx="7.6" cy="9" r=".55" fill="#fff"/><circle cx="10.4" cy="1.8" r=".55" fill="#fff"/><circle cx="10.4" cy="4.2" r=".55" fill="#fff"/><circle cx="10.4" cy="6.6" r=".55" fill="#fff"/><circle cx="10.4" cy="9" r=".55" fill="#fff"/></svg></span>',
+ pt:'<span class="fl"><svg viewBox="0 0 28 20" preserveAspectRatio="none" aria-hidden="true"><rect width="28" height="20" fill="#079a3d"/><path d="M14 2.2L25.2 10 14 17.8 2.8 10z" fill="#ffd400"/><circle cx="14" cy="10" r="4.3" fill="#0b2f8a"/><path d="M10 9.1q4-1.2 8.1 1.5" stroke="#fff" stroke-width=".9" fill="none"/></svg></span>'};
 var LNAMES={es:"Español",en:"English",pt:"Português (Brasil)"};
 var ORDER=["es","en","pt"];
 function localized(item){
