@@ -3,534 +3,377 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
-<title>Nexus Link · Descarga de enlaces</title>
-<meta name="description" content="Nexus Link entrega enlaces y archivos Android de forma clara y sencilla.">
+<title>Nexus Link · Plataforma de enlaces</title>
+<meta name="description" content="Nexus Link es una plataforma de entrega de enlaces desde 2018: direcciones cortas, enlaces verificados por el creador y pasos claros, pensados para el celular.">
+<link rel="canonical" href="https://nexuslinkyt.online/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Nexus Link"><meta property="og:url" content="https://nexuslinkyt.online/">
+<meta property="og:title" content="Nexus Link · Plataforma de enlaces"><meta property="og:description" content="Enlaces claros, seguros y rápidos, verificados por el creador y pensados para el celular.">
+<meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#f4f7fd" id="metaTheme">
 <link rel="icon" href="favicon.png" type="image/png" sizes="64x64"><link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180"><link rel="manifest" href="site.webmanifest">
-<link rel="preconnect" href="https://gist.githubusercontent.com" crossorigin><link rel="dns-prefetch" href="https://api.github.com">
-<link rel="preconnect" href="https://bellnewyork.org" crossorigin><link rel="dns-prefetch" href="https://ardance.org"><link rel="dns-prefetch" href="https://asiafilm.org">
+<link rel="preconnect" href="https://gist.githubusercontent.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Nexus Link", "logo": "logo-nexus-link.png"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Nexus Link","url":"https://nexuslinkyt.online/","logo":"https://nexuslinkyt.online/logo-nexus-link.png","foundingDate":"2018"},{"@type":"WebSite","name":"Nexus Link","url":"https://nexuslinkyt.online/"}]}</script>
 <script>
-/* Tema e idioma antes del primer pintado (evita parpadeos) */
 (function(){var d=document.documentElement,th="",lg="";
 try{th=localStorage.getItem("nexus-theme")||"";lg=localStorage.getItem("nexus-lang")||""}catch(e){}
 if(th!=="dark"&&th!=="light")th=(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";
 if(lg!=="es"&&lg!=="en"&&lg!=="pt"){var n=String(navigator.language||"es").toLowerCase();lg=n.indexOf("pt")===0?"pt":n.indexOf("en")===0?"en":"es"}
 d.setAttribute("data-theme",th);d.setAttribute("lang",lg)})();
 </script>
-<script>
-/* Si se abre sin un juego, se envía a la página de inicio */
-document.addEventListener("DOMContentLoaded",function(){
-  var hasGame=new URLSearchParams(location.search).has("g")||new URLSearchParams(location.search).has("id")||location.hash.length>1||location.pathname.split("/").filter(Boolean).some(function(p){return !/^(index|inicio)\.html?$/i.test(p)});
-  if(!hasGame&&/index\.html?$|\/$/i.test(location.pathname)){location.replace("inicio.html")}
-});
-</script>
 <style>
-:root{--bg:#f4f7fd;--bg2:#eaf1ff;--surface:#fff;--surface2:#f8fbff;--ink:#0b1733;--soft:#17264a;--muted:#5d6a86;--line:#dbe6f8;--accent:#1265e8;--accent2:#1688f4;--ok:#15996b;--chip:#eaf3ff;--glass:#f4f7fdd9;--shadow:0 18px 48px #1b4fb81a,0 2px 6px #1b4fb810;--shadow-s:0 8px 22px #1b4fb80d;--btn:linear-gradient(110deg,#0a49bd,#1265e8 55%,#17a3f0)}
+:root{--bg:#f4f7fd;--bg2:#e6efff;--surface:#fff;--surface2:#f8fbff;--ink:#0b1733;--soft:#17264a;--muted:#5d6a86;--line:#dbe6f8;--accent:#1265e8;--accent2:#1688f4;--ok:#15996b;--chip:#eaf3ff;--glass:#f4f7fdd9;--shadow:0 18px 48px #1b4fb81a,0 2px 6px #1b4fb810;--shadow-s:0 8px 22px #1b4fb80d;--btn:linear-gradient(110deg,#0a49bd,#1265e8 55%,#17a3f0)}
 html[data-theme=dark]{--bg:#0a1020;--bg2:#0f1a33;--surface:#111b30;--surface2:#0e1729;--ink:#eaf0ff;--soft:#cfd9f1;--muted:#97a5c4;--line:#22314f;--accent:#4b93ff;--accent2:#27b8ff;--ok:#3fcf9b;--chip:#14233f;--glass:#0a1020d9;--shadow:0 18px 48px #0007,0 2px 6px #0004;--shadow-s:0 8px 22px #0004;--btn:linear-gradient(110deg,#1550c7,#2f7bf0 55%,#1aa4ee)}
-*{box-sizing:border-box}
-[hidden]{display:none!important}
-html{-webkit-text-size-adjust:100%;color-scheme:light}html[data-theme=dark]{color-scheme:dark}
-body{margin:0;min-height:100vh;color:var(--ink);font:16px/1.55 Manrope,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;background:var(--bg) linear-gradient(180deg,var(--bg2) 0,var(--bg) 420px) no-repeat}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:78px;-webkit-text-size-adjust:100%;color-scheme:light}html[data-theme=dark]{color-scheme:dark}
+body{margin:0;min-height:100vh;color:var(--ink);font:16px/1.6 Manrope,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;background:var(--bg) linear-gradient(180deg,var(--bg2) 0,var(--bg) 560px) no-repeat}
 body.modal-open{overflow:hidden}
-a{color:inherit}button{font:inherit;color:inherit;cursor:pointer}
-img{max-width:100%}
-.shell{width:min(500px,100%);margin:0 auto;padding:0 14px 44px}
-@media(min-width:760px){.shell{width:min(760px,100%);padding-inline:20px}}
-
-/* Encabezado */
-.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:10px;height:64px;margin:0 -14px 14px;padding:0 14px;background:var(--glass);-webkit-backdrop-filter:saturate(1.5) blur(14px);backdrop-filter:saturate(1.5) blur(14px);border-bottom:1px solid var(--line)}
-@media(min-width:760px){.top{margin-inline:-20px;padding-inline:20px}}
-.brand{display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none}
-.brand img{width:40px;height:40px;border-radius:12px;flex:none;box-shadow:0 6px 16px #12306b26}
-.brand b{display:block;font-size:17px;font-weight:800;letter-spacing:-.01em;line-height:1.15}
-.brand small{display:block;font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-.tools{display:flex;gap:8px;flex:none;position:relative}
+a{color:inherit}button{font:inherit;color:inherit;cursor:pointer}img{max-width:100%}
+.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
+/* encabezado */
+.top{position:sticky;top:0;z-index:30;background:var(--glass);-webkit-backdrop-filter:saturate(1.5) blur(14px);backdrop-filter:saturate(1.5) blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:68px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:0}
+.brand img{width:42px;height:42px;border-radius:12px;flex:none;box-shadow:0 6px 16px #12306b26}
+.brand b{display:block;font-size:18px;font-weight:800;letter-spacing:-.01em;line-height:1.1}
+.brand small{display:block;font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+nav.main{display:flex;gap:4px}nav.main a{padding:8px 13px;border-radius:999px;text-decoration:none;font-weight:700;font-size:14px;color:var(--soft)}nav.main a:hover{background:var(--chip);color:var(--accent)}
+.tools{display:flex;gap:8px;position:relative;flex:none}
 .ib{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);padding:0;box-shadow:var(--shadow-s)}
-.ib:hover{border-color:var(--accent)}
-.ib svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.ib:hover{border-color:var(--accent)}.ib svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .flag{width:24px;height:16px;border-radius:3px;display:block;box-shadow:0 0 0 1px #0002}
-.langmenu{position:absolute;top:48px;right:0;min-width:190px;padding:6px;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow);z-index:40}
+.langmenu{position:absolute;top:48px;right:0;min-width:200px;padding:6px;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow);z-index:40}
 .langmenu button{display:flex;align-items:center;gap:10px;width:100%;padding:10px 12px;border:0;border-radius:10px;background:none;text-align:left;font-weight:700;font-size:14px}
 .langmenu button:hover,.langmenu button[aria-checked=true]{background:var(--chip)}
-@media(max-width:380px){.brand small{display:none}}
-
-/* Tarjeta principal */
-.hero{padding:20px;border:1px solid var(--line);border-radius:24px;background:var(--surface);box-shadow:var(--shadow);margin-bottom:18px}
-.status{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.verified{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;background:var(--chip);color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
-.verified i{width:7px;height:7px;border-radius:50%;background:var(--ok)}
-.os{font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
-.cover{display:none;margin:14px 0 0;border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:var(--surface2)}
-.cover.show{display:block}.cover img{width:100%;height:100%;object-fit:cover;display:block}
-.hero h1{margin:16px 0 4px;font-size:clamp(26px,7.4vw,36px);line-height:1.1;letter-spacing:-.025em;font-weight:800;overflow-wrap:anywhere}
-.subtitle{margin:0;color:var(--muted);font-size:15px;min-height:1.4em}
-.publisher{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px;border:1px solid var(--line);border-radius:16px;background:var(--surface2)}
-.publisher img{width:44px;height:44px;border-radius:12px;flex:none}
-.publisher p{margin:0;font-size:14px}.publisher small{color:var(--muted);font-size:12px}
-.nl-stage{display:none;text-align:center}
-body.nl-stage2 .nl-stage{display:block}
-body.nl-stage2 .hero-top{display:none}
-body.nl-stage2 .trust{display:none}
-.nl-kick{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.nl-game{margin:2px 0 0;font-size:13px;font-weight:700;color:var(--soft);overflow-wrap:anywhere}
-.nl-stage h2{margin:6px 0 8px;font-size:19px;line-height:1.2;letter-spacing:-.015em}
-.nl-ring{position:relative;width:84px;height:84px;margin:0 auto 6px}
-.nl-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
-.nl-ring .bg{fill:none;stroke:var(--line);stroke-width:9}
-.nl-ring .fg{fill:none;stroke:var(--accent);stroke-width:9;stroke-linecap:round}
-.nl-ring-num{position:absolute;inset:0;display:grid;place-items:center;font:800 30px/1 Manrope,system-ui,sans-serif;font-variant-numeric:tabular-nums}
-.nl-stage p{margin:0 0 4px;color:var(--muted);font-size:13px}
-.download{position:relative;display:block;width:100%;margin-top:20px;padding:20px 16px;border:0;border-radius:18px;background:var(--btn);color:#fff;text-align:center;text-decoration:none;font-weight:800;box-shadow:0 14px 30px #1265e842}
-body.nl-stage2 .download{margin-top:10px;padding:16px}
-.download:active{transform:scale(.99)}
-.download-arrow{display:block;font-size:24px;line-height:1}
-.download-label{display:block;margin-top:2px;font-size:clamp(16px,4.6vw,20px);line-height:1.2;text-transform:uppercase;letter-spacing:.03em;overflow-wrap:anywhere}
-.download span.d{display:block;margin-top:4px;font-size:12px;font-weight:600;opacity:.85;overflow-wrap:anywhere}
-.download.nl-counting{cursor:progress}
-.hint{margin:12px 0 0;text-align:center;color:var(--muted);font-size:12.5px;font-weight:600;line-height:1.45}
-.err{display:none;margin:14px 0 0;padding:12px 14px;border:1px solid #f1b5bf;border-radius:14px;background:#fff1f3;color:#9b1c34;font-size:14px}
-html[data-theme=dark] .err{background:#2a1118;border-color:#5b2230;color:#ffb3c0}
-.err.show{display:block}.err b{display:block}.err p{margin:2px 0 0}
-
-/* El código de Adsterra se pega sin envolturas: el banner solo se centra y deja aire alrededor */
-.shell>iframe{display:block;margin:0 auto;max-width:100%}
-@media(max-width:340px){.shell{padding-inline:0}.top{margin-inline:0;padding-inline:12px}.hero,.trust,.nl-desc,.section{margin-inline:10px}}
-
-/* Chips */
-.trust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px}
-.trust div{display:grid;justify-items:center;gap:8px;padding:14px 6px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:var(--shadow-s);text-align:center}
-.trust i{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-style:normal;font-size:14px;font-weight:800}
-.trust b{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
-
-/* Secciones */
-.section{margin-top:28px}
-.section h2{margin:0 0 12px;font-size:19px;font-weight:800;letter-spacing:-.015em}
-.nl-desc{margin-top:18px;margin-bottom:18px;padding:20px;border:1px solid var(--line);border-radius:20px;background:var(--surface);box-shadow:var(--shadow-s)}
-.nl-desc p{margin:0;font-size:15px;line-height:1.7;color:var(--soft);white-space:pre-wrap;overflow-wrap:anywhere}
-.after-native{margin-top:26px}
-.video{display:none}.video.show{display:block}
-.video iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:16px;display:block}
-.nl-steps{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.nl-steps li{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:var(--shadow-s)}
-.nl-steps b{flex:none;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:var(--accent);color:#fff;font-size:14px}
-.nl-steps strong{display:block;font-size:14.5px}.nl-steps span{display:block;margin-top:2px;color:var(--muted);font-size:13px}
-.nl-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.nl-card{padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:var(--shadow-s)}
-.nl-card h3{margin:0 0 4px;font-size:14.5px}.nl-card p{margin:0;color:var(--muted);font-size:13px}
-@media(max-width:380px){.nl-grid{grid-template-columns:1fr}}
-.nl-faq details{margin-bottom:8px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
-.nl-faq summary{cursor:pointer;font-weight:700;font-size:14.5px}
-.nl-faq p{margin:8px 0 0;color:var(--muted);font-size:13.5px}
-.nl-about{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
-
-/* Pie */
-.legal{margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}
-.legal-brand{display:flex;align-items:center;gap:10px}.legal-brand img{width:38px;height:38px;border-radius:11px}
-.legal-brand b{display:block;line-height:1.2}.legal-brand small{display:block;font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
-.links{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
-.links button{padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--accent);font-size:13px;font-weight:700}
-.copy,.served{color:var(--muted);font-size:12.5px}.served b{color:var(--ink)}
-
-/* Ventanas */
-.layer{position:fixed;inset:0;z-index:60;display:none;align-items:flex-end;justify-content:center;background:#050b1a88}
-.layer.open{display:flex}
+#menuBtn{display:none}
+@media(max-width:860px){nav.main{display:none}#menuBtn{display:grid}}
+@media(max-width:400px){.brand small{display:none}}
+/* hero */
+.hero{padding:64px 0 36px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid var(--line);background:var(--surface);border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.05em;color:var(--accent);box-shadow:var(--shadow-s)}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px #15996b22}
+h1{margin:20px 0 0;font-size:clamp(34px,6vw,60px);line-height:1.05;letter-spacing:-.035em;font-weight:800}
+h1 span{background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:560px;margin:18px 0 0;color:var(--muted);font-size:clamp(16px,2vw,18.5px)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border-radius:14px;font-weight:800;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:var(--shadow-s)}
+.btn.primary{border:0;background:var(--btn);color:#fff;box-shadow:0 14px 30px #1265e83a}
+.official{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:10px 14px;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow-s);font-size:13px;color:var(--muted);flex-wrap:wrap}
+.official b{color:var(--ink);font-size:15px;letter-spacing:.01em}.official svg{width:16px;height:16px;stroke:var(--ok);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mock{padding:18px;border:1px solid var(--line);border-radius:24px;background:var(--surface);box-shadow:var(--shadow)}
+.addr{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:var(--surface2);border:1px solid var(--line);font-size:13px;color:var(--soft);overflow:hidden;white-space:nowrap}
+.addr svg{width:14px;height:14px;flex:none;stroke:var(--ok);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.addr b{color:var(--accent)}
+.mock h3{margin:16px 0 10px;font-size:14px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.mrow{display:flex;gap:12px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--surface2);margin-bottom:8px}
+.mrow i{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-style:normal;font-weight:800;font-size:13px}
+.mrow span{font-weight:700;font-size:14px}
+.mbtn{margin-top:6px;padding:14px;border-radius:14px;text-align:center;background:var(--btn);color:#fff;font-weight:800;font-size:14px}
+@media(max-width:860px){.hero{padding-top:36px}.hero-grid{grid-template-columns:1fr;gap:28px}}
+/* secciones */
+.sec{padding:44px 0}
+.sec-head{max-width:680px;margin-bottom:26px}
+.sec-head h2{margin:0;font-size:clamp(25px,3.6vw,34px);letter-spacing:-.025em;line-height:1.15}
+.sec-head p{margin:8px 0 0;color:var(--muted)}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{padding:22px;border:1px solid var(--line);border-radius:20px;background:var(--surface);box-shadow:var(--shadow-s)}
+.card .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;margin-bottom:14px}
+.card .ic svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.card h3{margin:0 0 6px;font-size:17px;letter-spacing:-.01em}.card p{margin:0;color:var(--muted);font-size:14.5px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;counter-reset:s}
+.steps .card{position:relative;padding-top:26px}.steps .card:before{counter-increment:s;content:counter(s);position:absolute;right:18px;top:8px;font-size:54px;font-weight:800;color:var(--chip);line-height:1}
+.steps h3,.steps p{position:relative}
+.aud{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.aud ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px}
+.aud li{display:flex;gap:10px;align-items:flex-start;color:var(--soft);font-size:15px}
+.aud li:before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;background:var(--chip) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231265e8' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/12px no-repeat}
+/* catálogo */
+.cat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.game{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:20px;background:var(--surface);box-shadow:var(--shadow-s);overflow:hidden;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.game:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.game .cv{aspect-ratio:16/9;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#fff;font-size:38px;font-weight:800;overflow:hidden}
+.game .cv img{width:100%;height:100%;object-fit:cover;display:block}
+.game .bd{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.game b{font-size:16px;line-height:1.25;overflow-wrap:anywhere}.game small{color:var(--muted);font-size:13px;overflow-wrap:anywhere}
+.game .go{margin-top:auto;padding-top:10px;color:var(--accent);font-weight:800;font-size:13px}
+.note{color:var(--muted)}
+/* estadísticas */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.kpi{padding:20px;border:1px solid var(--line);border-radius:20px;background:var(--surface);box-shadow:var(--shadow-s)}
+.kpi b{display:block;font-size:clamp(26px,3.6vw,36px);letter-spacing:-.03em;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.kpi span{display:block;margin-top:2px;color:var(--muted);font-size:13px;font-weight:600}
+.kpis.live{grid-template-columns:repeat(3,minmax(0,1fr))}
+.st2{display:grid;grid-template-columns:1.3fr 1fr;gap:14px;margin-top:14px}
+.panel{padding:20px;border:1px solid var(--line);border-radius:20px;background:var(--surface);box-shadow:var(--shadow-s)}
+.panel h3{margin:0 0 14px;font-size:15px}
+.bars{display:flex;align-items:flex-end;gap:10px;height:140px}
+.bars div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px;height:100%;min-width:0}
+.bars i{display:block;width:100%;max-width:44px;min-height:4px;border-radius:8px 8px 3px 3px;background:linear-gradient(180deg,var(--accent2),var(--accent))}
+.bars em{font-style:normal;font-size:11px;color:var(--muted);font-weight:700;white-space:nowrap}
+.bars strong{font-size:12px}
+.rank{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:r}
+.rank li{display:flex;align-items:center;gap:10px;font-size:14.5px}
+.rank li:before{counter-increment:r;content:counter(r);flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--chip);color:var(--accent);font-weight:800;font-size:12px}
+.rank span{flex:1;min-width:0;overflow-wrap:anywhere;font-weight:700}.rank small{color:var(--muted);font-weight:700;white-space:nowrap}
+@media(max-width:860px){.grid3,.steps,.cat{grid-template-columns:1fr 1fr}.kpis,.kpis.live{grid-template-columns:repeat(2,minmax(0,1fr))}.st2,.aud{grid-template-columns:1fr}}
+@media(max-width:560px){.grid3,.steps,.cat{grid-template-columns:1fr}}
+/* seguridad / faq / cta */
+.sec4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media(max-width:860px){.sec4{grid-template-columns:1fr 1fr}}@media(max-width:560px){.sec4{grid-template-columns:1fr}}
+.faq{max-width:820px}.faq details{margin-bottom:10px;padding:14px 18px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:var(--shadow-s)}
+.faq summary{cursor:pointer;font-weight:700}.faq p{margin:10px 0 0;color:var(--muted);font-size:14.5px}
+.cta{padding:34px;border-radius:26px;background:var(--btn);color:#fff;text-align:center;box-shadow:0 20px 44px #1265e83a}
+.cta h2{margin:0;font-size:clamp(22px,3.4vw,30px);letter-spacing:-.02em}.cta p{margin:8px auto 18px;max-width:520px;opacity:.9}
+.cta a{display:inline-flex;padding:13px 24px;border-radius:14px;background:#fff;color:#0a49bd;font-weight:800;text-decoration:none}
+.about{max-width:760px;color:var(--muted);font-size:15.5px;line-height:1.75}
+footer{margin-top:20px;padding:30px 0 44px;border-top:1px solid var(--line)}
+.fgrid{display:flex;flex-wrap:wrap;gap:22px 40px;justify-content:space-between;align-items:flex-start}
+.fbrand{display:flex;align-items:center;gap:10px}.fbrand img{width:40px;height:40px;border-radius:12px}.fbrand b{display:block;line-height:1.2}.fbrand small{display:block;font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:8px}.links button{padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--accent);font-size:13px;font-weight:700}
+.copy{margin-top:18px;color:var(--muted);font-size:12.5px}
+/* ventanas */
+.layer{position:fixed;inset:0;z-index:60;display:none;align-items:flex-end;justify-content:center;background:#050b1a88}.layer.open{display:flex}
 @media(min-width:560px){.layer{align-items:center}}
 .dialog{width:min(520px,100%);max-height:86vh;overflow:auto;padding:20px;border:1px solid var(--line);border-radius:22px 22px 0 0;background:var(--surface);box-shadow:var(--shadow)}
 @media(min-width:560px){.dialog{border-radius:22px}}
-.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
-.dialog-head h2{margin:0;font-size:20px;letter-spacing:-.015em}
-.dialog p{margin:0 0 12px;color:var(--soft);font-size:14.5px;line-height:1.65}
-.dialog h3{margin:18px 0 6px;font-size:15px;color:var(--accent)}
-.menu{display:grid;gap:4px;margin:0 0 14px}
-.menu a,.menu button{display:flex;align-items:center;gap:12px;width:100%;padding:13px 12px;border:0;border-radius:12px;background:none;text-align:left;text-decoration:none;font-weight:700;font-size:15px}
-.menu a:hover,.menu button:hover{background:var(--chip)}
-.menu svg{width:20px;height:20px;flex:none;fill:none;stroke:var(--accent);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.dialog-head h2{margin:0;font-size:20px}
+.dialog p{margin:0 0 12px;color:var(--soft);font-size:14.5px;line-height:1.65}.dialog h3{margin:18px 0 6px;font-size:15px;color:var(--accent)}
+.menu{display:grid;gap:4px;margin:0 0 14px}.menu a,.menu button{display:flex;align-items:center;gap:12px;width:100%;padding:13px 12px;border:0;border-radius:12px;background:none;text-align:left;text-decoration:none;font-weight:700;font-size:15px}.menu a:hover,.menu button:hover{background:var(--chip)}
+.sub{margin:14px 0 6px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .seg{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:8px;margin:6px 0 14px}
 .seg button{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 8px;border:1px solid var(--line);border-radius:12px;background:var(--surface2);font-weight:700;font-size:13.5px}
 .seg button[aria-checked=true]{border-color:var(--accent);background:var(--chip);color:var(--accent)}
-.sub{margin:14px 0 6px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.final-loading{position:fixed;inset:0;z-index:80;display:none;place-items:center;padding:22px;background:var(--bg)}
-.final-loading.open{display:grid}
-.loading-card{width:min(380px,100%);padding:26px 22px;border:1px solid var(--line);border-radius:20px;background:var(--surface);text-align:center;box-shadow:var(--shadow)}
-.loading-card img{width:56px;height:56px;border-radius:14px}
-.spin{width:40px;height:40px;margin:16px auto;border:4px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:nlSpin .8s linear infinite}
-@keyframes nlSpin{to{transform:rotate(360deg)}}
-.loading-card p{margin:0;color:var(--accent);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.loading-card h2{margin:6px 0;font-size:20px}.loading-card b{display:block;overflow-wrap:anywhere}.loading-card small{display:block;margin-top:8px;color:var(--muted)}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<main class="shell">
-<header class="top">
-  <a class="brand" href="inicio.html" aria-label="Nexus Link"><img id="brandLogo" alt="Nexus Link" src="data:image/webp;base64,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"><div><b>Nexus Link</b><small data-i18n="tagline">Entrega de enlaces</small></div></a>
+<header class="top"><div class="wrap">
+  <a class="brand" href="/" aria-label="Nexus Link"><img id="brandLogo" alt="Nexus Link" src="data:image/webp;base64,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"><div><b>Nexus Link</b><small data-i18n="tagline">Plataforma de enlaces</small></div></a>
+  <nav class="main"><a href="#que-hacemos" data-i18n="nav_what">Qué hacemos</a><a href="#como-funciona" data-i18n="nav_how">Cómo funciona</a><a href="#publicaciones" data-i18n="nav_catalog">Publicaciones</a><a href="#estadisticas" data-i18n="nav_stats">Estadísticas</a><a href="#preguntas" data-i18n="nav_faq">Preguntas</a></nav>
   <div class="tools">
     <button class="ib" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false"><span id="langFlag"></span></button>
     <button class="ib" id="themeBtn" type="button"></button>
-    <button class="ib" id="setBtn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+    <button class="ib" id="menuBtn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <div class="langmenu" id="langMenu" role="menu" hidden></div>
   </div>
-</header>
+</div></header>
 
-<section class="hero" id="start">
-  <div class="hero-top">
-    <div class="status"><span class="verified"><i></i><span data-i18n="active">Enlace activo</span></span><span class="os" data-i18n="android">Android</span></div>
-    <div class="cover" id="cover"></div>
-    <h1 id="name">Cargando juego…</h1>
-    <p class="subtitle" id="subtitle">Buscando la publicación correcta</p>
-    <div class="publisher"><img alt="joeldroidmods" src="data:image/webp;base64,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"><div><p><span data-i18n="published_by">Publicado por</span> <b>joeldroidmods</b></p><small data-i18n="creator">Creador asociado</small></div></div>
+<main>
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="pill"><i></i><span data-i18n="hero_pill">Plataforma de enlaces · desde 2018</span></span>
+    <h1><span data-i18n="hero_h1a" style="background:none;-webkit-text-fill-color:currentColor;color:inherit">Enlaces claros, seguros y </span><span data-i18n="hero_h1b">rápidos</span></h1>
+    <p class="lead" data-i18n="hero_lead">Nexus Link convierte direcciones largas en enlaces cortos y ordenados, verificados por el creador y pensados para el celular. Sin registros, sin complicaciones.</p>
+    <div class="cta-row"><a class="btn primary" href="#publicaciones" data-i18n="hero_cta1">Ver publicaciones</a><a class="btn" href="#como-funciona" data-i18n="hero_cta2">Cómo funciona</a></div>
+    <div class="official"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg><span data-i18n="hero_official">Dirección oficial</span><b>nexuslinkyt.online</b></div>
   </div>
-  <div class="nl-stage" id="nlStage" aria-live="polite">
-    <div class="nl-kick" id="nlStKick"></div>
-    <p class="nl-game" id="nlGame"></p>
-    <h2 id="nlStTitle"></h2>
-    <div class="nl-ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="bg" cx="60" cy="60" r="52"></circle><circle class="fg" id="nlRingFg" cx="60" cy="60" r="52"></circle></svg><div class="nl-ring-num" id="nlRingNum">10</div></div>
-    <p id="nlStSub"></p>
+  <div class="mock" aria-hidden="true">
+    <div class="addr"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>nexuslinkyt.online/<b>tu-enlace</b></span></div>
+    <h3 data-i18n="mock_title">Tu enlace en 3 pasos</h3>
+    <div class="mrow"><i>1</i><span data-i18n="how1_t">Toca “Descargar”</span></div>
+    <div class="mrow"><i>2</i><span data-i18n="how2_t">Continúa</span></div>
+    <div class="mrow"><i>3</i><span data-i18n="how3_t">Recibe tu enlace</span></div>
+    <div class="mbtn" data-i18n="mock_done">Listo para continuar</div>
   </div>
-  <div class="err" id="err" role="alert"><b id="errT"></b><p id="errM"></p></div>
-  <a class="download" href="#" id="download" target="_blank" rel="noopener sponsored" aria-live="polite"><span class="download-arrow" aria-hidden="true">↓</span><span class="download-label" id="buttonText"></span><span class="d" id="buttonDetail"></span></a>
-  <p class="hint" id="nlHint"></p>
-</section>
-<script>
-  atOptions = {
-    'key' : 'f6e8987b58cb4b4aaf2a262c6ca4a8c7',
-    'format' : 'iframe',
-    'height' : 50,
-    'width' : 320,
-    'params' : {}
-  };
-</script>
-<script src="https://bellnewyork.org/22/f6e8987b58cb4b4aaf2a262c6ca4a8c7"></script>
-<section class="trust"><div><i>✓</i><b data-i18n="trust_free">Gratis</b></div><div><i>⌁</i><b data-i18n="trust_direct">Enlace directo</b></div><div><i>⬡</i><b data-i18n="trust_android">Listo para Android</b></div></section>
-<section class="section nl-desc"><h2 data-i18n="s_desc">Descripción</h2><p id="description"></p></section>
-<script async="async" data-cfasync="false" src="https://bellnewyork.org/21/629198138c045d49671935c217dbeeb6"></script>
-<div id="container-629198138c045d49671935c217dbeeb6"></div>
-<section class="section video after-native" id="video"><h2 data-i18n="s_video">Video o tutorial</h2><div id="youtube"></div></section>
-<section class="section after-native" id="como-funciona"><h2 data-i18n="s_how">Cómo funciona</h2><ol class="nl-steps">
-<li><b>1</b><div><strong data-i18n="how1_t">Toca “Descargar”</strong><span data-i18n="how1_d">Tu enlace se prepara en unos segundos.</span></div></li>
-<li><b>2</b><div><strong data-i18n="how2_t">Continúa</strong><span data-i18n="how2_d">Se abre una página de nuestros patrocinadores en una pestaña nueva. Al volver aquí, comienza una breve espera.</span></div></li>
-<li><b>3</b><div><strong data-i18n="how3_t">Recibe tu enlace</strong><span data-i18n="how3_d">Cuando termina la cuenta, el botón final te lleva a tu descarga.</span></div></li>
-</ol></section>
-<section class="section"><h2 data-i18n="s_why">Por qué usar Nexus Link</h2><div class="nl-grid">
-<div class="nl-card"><h3 data-i18n="why1_t">Enlaces directos</h3><p data-i18n="why1_d">Te llevamos al destino que publicó el creador, sin registros ni formularios.</p></div>
-<div class="nl-card"><h3 data-i18n="why2_t">Gratis para ti</h3><p data-i18n="why2_d">Usar Nexus Link no tiene costo. El sitio se mantiene con publicidad.</p></div>
-<div class="nl-card"><h3 data-i18n="why3_t">Hecho para Android</h3><p data-i18n="why3_d">Páginas ligeras que cargan rápido en el celular, incluso con datos móviles.</p></div>
-<div class="nl-card"><h3 data-i18n="why4_t">Siempre al día</h3><p data-i18n="why4_d">El creador actualiza el enlace cuando sale una versión nueva.</p></div>
 </div></section>
-<section class="section"><h2 data-i18n="s_install">Cómo instalar un APK</h2><ol class="nl-steps">
-<li><b>1</b><div><strong data-i18n="ins1_t">Abre el archivo descargado</strong><span data-i18n="ins1_d">Búscalo en la carpeta Descargas o en las notificaciones.</span></div></li>
-<li><b>2</b><div><strong data-i18n="ins2_t">Permite la instalación</strong><span data-i18n="ins2_d">Si Android lo pide, activa “Instalar apps desconocidas” para tu navegador o administrador de archivos.</span></div></li>
-<li><b>3</b><div><strong data-i18n="ins3_t">Instala y abre</strong><span data-i18n="ins3_d">Toca Instalar y, al terminar, abre el juego. Descarga solo de fuentes que conozcas.</span></div></li>
-</ol></section>
-<section class="section nl-faq"><h2 data-i18n="s_faq">Preguntas frecuentes</h2>
-<details><summary data-i18n="faq1_q">¿Tiene algún costo?</summary><p data-i18n="faq1_a">No. Usar Nexus Link es gratis. El sitio se financia con publicidad de terceros.</p></details>
-<details><summary data-i18n="faq2_q">¿Por qué se abre una página de anuncios?</summary><p data-i18n="faq2_a">Nexus Link muestra publicidad servida por Adsterra. Al continuar con una descarga se abre una página patrocinadora en una pestaña nueva; puedes cerrarla y volver aquí.</p></details>
-<details><summary data-i18n="faq3_q">¿Nexus Link aloja los archivos?</summary><p data-i18n="faq3_a">No. Solo enlazamos contenido publicado por el creador; el archivo se descarga desde el sitio de destino.</p></details>
-<details><summary data-i18n="faq4_q">¿Cuánto tarda?</summary><p data-i18n="faq4_a">Menos de medio minuto: una breve espera inicial, la página del patrocinador y una segunda espera antes del enlace final.</p></details>
-<details><summary data-i18n="faq5_q">El enlace no funciona, ¿qué hago?</summary><p data-i18n="faq5_a">Usa “Reportar archivo” en el pie de la página indicando el nombre del juego y lo revisaremos.</p></details>
-</section>
-<section class="section"><h2 data-i18n="s_about">Sobre Nexus Link</h2><p class="nl-about" data-i18n="about_p">Nexus Link es una plataforma de entrega de enlaces que funciona desde 2018. Ayudamos a creadores a compartir sus publicaciones de forma ordenada y a que cada persona llegue a su contenido en pocos pasos.</p></section>
-<footer class="legal">
-  <div class="legal-brand"><img id="footLogo" alt="Nexus Link" width="38" height="38"><div><b>Nexus Link</b><small data-i18n="f_platform">Plataforma de enlaces</small></div></div>
-  <div class="links"><button type="button" data-doc="about" data-i18n="f_about">Acerca de</button><button type="button" data-doc="privacy" data-i18n="f_privacy">Privacidad</button><button type="button" data-doc="terms" data-i18n="f_terms">Términos y condiciones</button><button type="button" data-doc="ads" data-i18n="f_ads">Publicidad</button><button type="button" data-doc="copyright" data-i18n="f_copyright">Derechos de autor</button><button type="button" data-doc="report" data-i18n="f_report">Reportar archivo</button></div>
-  <div class="copy"><span data-i18n="f_copy">© 2018–2026 Nexus Link. Todos los derechos reservados.</span><br><span data-i18n="f_content">Contenido por joeldroidmods</span></div>
-  <div class="served"><span data-i18n="f_served">Publicidad servida por</span> <b>Adsterra</b></div>
-</footer>
+
+<section class="sec" id="que-hacemos"><div class="wrap">
+  <div class="sec-head"><h2 data-i18n="s_what">Qué hacemos</h2><p data-i18n="what_lead">Somos una plataforma de entrega de enlaces: conectamos a las personas con el contenido que publican los creadores, de forma ordenada y transparente.</p></div>
+  <div class="grid3">
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></div><h3 data-i18n="what1_t">Acortamos y ordenamos enlaces</h3><p data-i18n="what1_d">Cada publicación tiene su propia dirección corta, fácil de compartir: nexuslinkyt.online/nombre.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12l2 2 4-4"/></svg></div><h3 data-i18n="what2_t">Verificamos cada enlace</h3><p data-i18n="what2_d">Nuestro creador joeldroidmods revisa cada enlace antes de publicarlo.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h6"/></svg></div><h3 data-i18n="what3_t">Pasos claros</h3><p data-i18n="what3_d">Cada persona ve qué sigue en todo momento: pasos numerados y cuenta regresiva.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div><h3 data-i18n="what4_t">Hecho para el celular</h3><p data-i18n="what4_d">Páginas ligeras que cargan rápido, incluso con datos móviles.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7M21 4v5h-5"/></svg></div><h3 data-i18n="what5_t">Siempre actualizado</h3><p data-i18n="what5_d">Las publicaciones se actualizan en tiempo real desde nuestro panel.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M20 12v8H4v-8M2 7h20v5H2zM12 22V7M12 7H8a2.5 2.5 0 0 1 0-5c2 0 4 5 4 5zM12 7h4a2.5 2.5 0 0 0 0-5c-2 0-4 5-4 5z"/></svg></div><h3 data-i18n="what6_t">Gratis para ti</h3><p data-i18n="what6_d">El servicio se sostiene con publicidad de terceros, indicada con claridad.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="como-funciona"><div class="wrap">
+  <div class="sec-head"><h2 data-i18n="s_how">Cómo funciona</h2><p data-i18n="how_lead">Tres pasos y llegas a tu destino.</p></div>
+  <div class="steps">
+    <div class="card"><h3 data-i18n="how1_t">Toca “Descargar”</h3><p data-i18n="how1_d">Tu enlace se prepara en unos segundos.</p></div>
+    <div class="card"><h3 data-i18n="how2_t">Continúa</h3><p data-i18n="how2_d">Se abre una página de nuestros patrocinadores en una pestaña nueva. Al volver aquí, comienza una breve espera.</p></div>
+    <div class="card"><h3 data-i18n="how3_t">Recibe tu enlace</h3><p data-i18n="how3_d">Cuando termina la cuenta, el botón final te lleva a tu descarga.</p></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><h2 data-i18n="s_aud">Pensado para todos</h2></div>
+  <div class="aud">
+    <div class="card"><h3 data-i18n="aud1_t">Para quien descarga</h3><ul><li data-i18n="aud1_1">Sin registros ni formularios</li><li data-i18n="aud1_2">Funciona desde cualquier celular o navegador</li><li data-i18n="aud1_3">Te lleva al destino que publicó el creador</li></ul></div>
+    <div class="card"><h3 data-i18n="aud2_t">Para creadores asociados</h3><ul><li data-i18n="aud2_1">Tu publicación con una dirección corta propia</li><li data-i18n="aud2_2">Cambios visibles al instante desde el panel</li><li data-i18n="aud2_3">Estadísticas reales de visitas y descargas</li></ul></div>
+  </div>
+</div></section>
+
+<section class="sec" id="publicaciones"><div class="wrap">
+  <div class="sec-head"><h2 data-i18n="s_cat">Últimas publicaciones</h2><p data-i18n="cat_lead">Enlaces verificados publicados recientemente.</p></div>
+  <div class="cat" id="cat"></div>
+  <p class="note" id="catMsg" data-i18n="cat_loading">Cargando publicaciones…</p>
+</div></section>
+
+<section class="sec" id="estadisticas"><div class="wrap">
+  <div class="sec-head"><h2 data-i18n="s_stats">La plataforma en números</h2><p data-i18n="stats_lead">Datos reales, contados de forma anónima y actualizados automáticamente.</p></div>
+  <div class="kpis" id="kpis">
+    <div class="kpi"><b id="kGames">–</b><span data-i18n="st_games">Publicaciones activas</span></div>
+    <div class="kpi" data-live hidden><b id="kUsersToday">0</b><span data-i18n="st_usersToday">Usuarios hoy</span></div>
+    <div class="kpi" data-live hidden><b id="kUsers">0</b><span data-i18n="st_users">Usuarios en total</span></div>
+    <div class="kpi" data-live hidden><b id="kDl">0</b><span data-i18n="st_dl">Descargas completadas</span></div>
+    <div class="kpi" data-live hidden><b id="kViews">0</b><span data-i18n="st_views">Visitas totales</span></div>
+    <div class="kpi" data-live hidden><b id="kCountries">0</b><span data-i18n="st_countries">Países</span></div>
+  </div>
+  <div class="st2" id="stLive" hidden>
+    <div class="panel"><h3 data-i18n="st_week">Usuarios por día (últimos 7 días)</h3><div class="bars" id="bars"></div></div>
+    <div class="panel"><h3 data-i18n="st_top">Publicaciones más populares</h3><ol class="rank" id="rank"></ol></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><h2 data-i18n="s_sec">Transparencia y seguridad</h2></div>
+  <div class="sec4">
+    <div class="card"><h3 data-i18n="sec1_t">Enlaces verificados</h3><p data-i18n="sec1_d">Cada enlace lo revisa joeldroidmods antes de publicarse.</p></div>
+    <div class="card"><h3 data-i18n="sec2_t">No alojamos archivos</h3><p data-i18n="sec2_d">Solo enlazamos contenido publicado por terceros.</p></div>
+    <div class="card"><h3 data-i18n="sec3_t">Sin datos sensibles</h3><p data-i18n="sec3_d">Nunca pedimos registros, contraseñas ni datos de pago.</p></div>
+    <div class="card"><h3 data-i18n="sec4_t">Publicidad indicada</h3><p data-i18n="sec4_d">Mostramos publicidad de terceros y lo decimos con claridad.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="preguntas"><div class="wrap faq">
+  <div class="sec-head"><h2 data-i18n="s_faq">Preguntas frecuentes</h2></div>
+  <details><summary data-i18n="faq1_q">¿Tiene algún costo?</summary><p data-i18n="faq1_a">No. Usar Nexus Link es gratis. El sitio se financia con publicidad de terceros.</p></details>
+  <details><summary data-i18n="faq2_q">¿Por qué se abre una página de anuncios?</summary><p data-i18n="faq2_a">Nexus Link muestra publicidad servida por Adsterra. Al continuar con una descarga se abre una página patrocinadora en una pestaña nueva; puedes cerrarla y volver aquí.</p></details>
+  <details><summary data-i18n="faq3_q">¿Nexus Link aloja los archivos?</summary><p data-i18n="faq3_a">No. Solo enlazamos contenido publicado por el creador; el archivo se descarga desde el sitio de destino.</p></details>
+  <details><summary data-i18n="faq4_q">¿Cuánto tarda?</summary><p data-i18n="faq4_a">Menos de medio minuto: una breve espera inicial, la página del patrocinador y una segunda espera antes del enlace final.</p></details>
+  <details><summary data-i18n="faq5_q">El enlace no funciona, ¿qué hago?</summary><p data-i18n="faq5_a">Usa “Reportar archivo” en el pie de la página indicando el nombre del juego y lo revisaremos.</p></details>
+  <details><summary data-i18n="faq6_q">¿Cómo se cuentan las visitas?</summary><p data-i18n="faq6_a">De forma anónima y agregada por día, juego y país. No guardamos tu dirección IP ni datos personales.</p></details>
+</div></section>
+
+<section class="sec"><div class="wrap"><div class="cta"><h2 data-i18n="cta_t">¿Tienes un enlace de Nexus Link?</h2><p data-i18n="cta_d">Ábrelo directamente, o explora las últimas publicaciones.</p><a href="#publicaciones" data-i18n="cta_b">Explorar publicaciones</a></div></div></section>
+
+<section class="sec"><div class="wrap"><div class="sec-head"><h2 data-i18n="s_about">Sobre Nexus Link</h2></div><p class="about" data-i18n="about_p">Nexus Link es una plataforma de entrega de enlaces que funciona desde 2018. Ayudamos a creadores a compartir sus publicaciones de forma ordenada y a que cada persona llegue a su contenido en pocos pasos.</p></div></section>
 </main>
 
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div class="fbrand"><img id="footLogo" alt="Nexus Link" width="40" height="40"><div><b>Nexus Link</b><small data-i18n="f_platform">Plataforma de enlaces</small></div></div>
+    <div class="links"><button type="button" data-doc="about" data-i18n="f_about">Acerca de</button><button type="button" data-doc="privacy" data-i18n="f_privacy">Privacidad</button><button type="button" data-doc="terms" data-i18n="f_terms">Términos y condiciones</button><button type="button" data-doc="ads" data-i18n="f_ads">Publicidad</button><button type="button" data-doc="copyright" data-i18n="f_copyright">Derechos de autor</button><button type="button" data-doc="report" data-i18n="f_report">Reportar archivo</button><button type="button" data-doc="security" data-i18n="set_security">Seguridad</button></div>
+  </div>
+  <div class="copy"><span data-i18n="f_copy">© 2018–2026 Nexus Link. Todos los derechos reservados.</span> · nexuslinkyt.online<br><span data-i18n="f_content">Contenido por joeldroidmods</span></div>
+</div></footer>
+
 <div class="layer" id="docLayer" role="dialog" aria-modal="true"><div class="dialog"><div class="dialog-head"><h2 id="docTitle"></h2><button class="ib" type="button" id="docClose"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div><div id="docBody"></div></div></div>
-
-<div class="layer" id="setLayer" role="dialog" aria-modal="true"><div class="dialog"><div class="dialog-head"><h2 data-i18n="settings">Configuración</h2><button class="ib" type="button" id="setClose"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <nav class="menu">
-    <a href="inicio.html"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/></svg><span data-i18n="set_home">Inicio</span></a>
-    <button type="button" data-doc="about"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span data-i18n="set_about">Sobre nosotros</span></button>
-    <button type="button" data-doc="policies"><svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7zM15 3v4h4M10 12h6M10 16h6"/></svg><span data-i18n="set_policies">Políticas y condiciones</span></button>
-    <button type="button" data-doc="adv"><svg viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h3l6 4V6L7 10H4a1 1 0 0 0-1 1zM17 9a4 4 0 0 1 0 6"/></svg><span data-i18n="set_ads">Nuestro anunciante</span></button>
-    <button type="button" data-doc="security"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12l2 2 4-4"/></svg><span data-i18n="set_security">Seguridad</span></button>
-    <button type="button" data-doc="report"><svg viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg><span data-i18n="set_report">Reportar archivo</span></button>
-  </nav>
-  <div class="sub" data-i18n="set_theme">Apariencia</div>
-  <div class="seg" id="segTheme" role="radiogroup"><button type="button" role="radio" data-theme-set="light" data-i18n="set_theme_light">Claro</button><button type="button" role="radio" data-theme-set="dark" data-i18n="set_theme_dark">Oscuro</button></div>
-  <div class="sub" data-i18n="set_lang">Idioma</div>
-  <div class="seg" id="segLang" role="radiogroup"></div>
+<div class="layer" id="menuLayer" role="dialog" aria-modal="true"><div class="dialog"><div class="dialog-head"><h2 data-i18n="menu">Menú</h2><button class="ib" type="button" id="menuClose"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <nav class="menu"><a href="#que-hacemos" data-i18n="nav_what">Qué hacemos</a><a href="#como-funciona" data-i18n="nav_how">Cómo funciona</a><a href="#publicaciones" data-i18n="nav_catalog">Publicaciones</a><a href="#estadisticas" data-i18n="nav_stats">Estadísticas</a><a href="#preguntas" data-i18n="nav_faq">Preguntas</a></nav>
+  <div class="sub" data-i18n="set_theme">Apariencia</div><div class="seg"><button type="button" role="radio" data-theme-set="light" data-i18n="set_theme_light">Claro</button><button type="button" role="radio" data-theme-set="dark" data-i18n="set_theme_dark">Oscuro</button></div>
+  <div class="sub" data-i18n="set_lang">Idioma</div><div class="seg" id="segLang" role="radiogroup"></div>
 </div></div>
-
-<div class="final-loading" id="finalLoading" role="status" aria-live="assertive"><div class="loading-card"><img id="loadLogo" alt="" width="56" height="56"><span class="spin" aria-hidden="true"></span><p data-i18n="redir_k">Redireccionando</p><h2 data-i18n="redir_t">Cargando enlace final de descarga</h2><b id="loadingGameName"></b><small data-i18n="redir_s">No cierres esta pantalla. Tu enlace está abriendo ahora.</small></div></div>
 
 <script>
 (function(){
 "use strict";
-var GIST_ID="c3537c2e402ac4f1e2c3846f89c7c842",GIST_USER="JoelDroidModsYT",FILE="acortador.json",CACHE_KEY="nexus-links-cache-v3",THEME_KEY="nexus-theme",LANG_KEY="nexus-lang";
-var AD1="https://ardance.org/4/e678d896257eaeeea85479006787ce25",AD2="https://asiafilm.org/4/ad2308cb5f1365f77721ee100fa1e142";
-var T1=5,T2=10;
-var RETRY_DELAYS=[500,1200,2000,3000,4500];
-var I18N={"es":{"tagline":"Entrega de enlaces","aria_theme_dark":"Activar modo oscuro","aria_theme_light":"Activar modo claro","aria_lang":"Cambiar idioma","aria_settings":"Abrir configuración","aria_close":"Cerrar","settings":"Configuración","set_home":"Inicio","set_about":"Sobre nosotros","set_policies":"Políticas y condiciones","set_ads":"Nuestro anunciante","set_security":"Seguridad","set_report":"Reportar archivo","set_theme":"Apariencia","set_theme_light":"Claro","set_theme_dark":"Oscuro","set_lang":"Idioma","active":"Enlace activo","android":"Android","published_by":"Publicado por","creator":"Creador asociado","loading_game":"Cargando juego…","confirming":"Confirmando publicación…","finding":"Buscando la publicación correcta","btn_preparing_link":"Preparando enlace","btn_wait_moment":"Espera un momento","btn_download":"Descargar","btn_preparing":"Preparando tu descarga","btn_wait_1":"Espera {n} segundo…","btn_wait_n":"Espera {n} segundos…","btn_unavailable":"Enlace no disponible","btn_unavailable_d":"Revisa la dirección e inténtalo otra vez","btn_waiting_link":"Esperando enlace","btn_waiting_link_d":"Usa la dirección exacta compartida por joeldroidmods","home_sub":"Abre una URL generada desde el panel para acceder a tu juego.","hint_idle":"Paso 1 de 3 · Toca “Descargar” para comenzar.","hint_c1":"Paso 1 de 3 · Preparando tu enlace…","hint_ready2":"Paso 2 de 3 · Toca de nuevo para continuar. Se abrirá una página de nuestros patrocinadores en una pestaña nueva.","hint_c2":"Paso 2 de 3 · Preparando tu descarga…","hint_ready3":"Paso 3 de 3 · Toca para continuar. Se abrirá otra página de nuestros patrocinadores y tu descarga seguirá aquí.","hint_redirecting":"Abriendo tu descarga…","kick2":"Paso 2 de 3","kick3":"Paso 3 de 3","stage_title2":"Preparando tu descarga","stage_sub2":"Tu enlace estará listo en {n} s","stage_title3":"¡Todo listo!","stage_sub3":"Toca el botón para continuar a tu descarga.","err_nolink_t":"Descarga no configurada","err_nolink_m":"Este juego todavía no tiene un enlace final de descarga.","err_nf_t":"Juego no encontrado","err_nf_m":"“{slug}” no está publicado en Nexus Link o está pausado. Revisa que el enlace sea el que copiaste del panel.","err_load_t":"No pudimos cargar el enlace","err_load_m":"Revisa tu conexión a internet y recarga la página.","err_slow_m":"La conexión está muy lenta. Recarga la página para intentarlo otra vez.","default_desc":"Publicado en Nexus Link.","title_suffix":"Descarga de enlaces","cover_alt":"Portada de","trust_free":"Gratis","trust_direct":"Enlace directo","trust_android":"Listo para Android","s_desc":"Descripción","s_video":"Video o tutorial","video_title":"Video del juego","s_how":"Cómo funciona","how1_t":"Toca “Descargar”","how1_d":"Tu enlace se prepara en unos segundos.","how2_t":"Continúa","how2_d":"Se abre una página de nuestros patrocinadores en una pestaña nueva. Al volver aquí, comienza una breve espera.","how3_t":"Recibe tu enlace","how3_d":"Cuando termina la cuenta, el botón final te lleva a tu descarga.","s_why":"Por qué usar Nexus Link","why1_t":"Enlaces directos","why1_d":"Te llevamos al destino que publicó el creador, sin registros ni formularios.","why2_t":"Gratis para ti","why2_d":"Usar Nexus Link no tiene costo. El sitio se mantiene con publicidad.","why3_t":"Hecho para Android","why3_d":"Páginas ligeras que cargan rápido en el celular, incluso con datos móviles.","why4_t":"Siempre al día","why4_d":"El creador actualiza el enlace cuando sale una versión nueva.","s_install":"Cómo instalar un APK","ins1_t":"Abre el archivo descargado","ins1_d":"Búscalo en la carpeta Descargas o en las notificaciones.","ins2_t":"Permite la instalación","ins2_d":"Si Android lo pide, activa “Instalar apps desconocidas” para tu navegador o administrador de archivos.","ins3_t":"Instala y abre","ins3_d":"Toca Instalar y, al terminar, abre el juego. Descarga solo de fuentes que conozcas.","s_faq":"Preguntas frecuentes","faq1_q":"¿Tiene algún costo?","faq1_a":"No. Usar Nexus Link es gratis. El sitio se financia con publicidad de terceros.","faq2_q":"¿Por qué se abre una página de anuncios?","faq2_a":"Nexus Link muestra publicidad servida por Adsterra. Al continuar con una descarga se abre una página patrocinadora en una pestaña nueva; puedes cerrarla y volver aquí.","faq3_q":"¿Nexus Link aloja los archivos?","faq3_a":"No. Solo enlazamos contenido publicado por el creador; el archivo se descarga desde el sitio de destino.","faq4_q":"¿Cuánto tarda?","faq4_a":"Menos de medio minuto: una breve espera inicial, la página del patrocinador y una segunda espera antes del enlace final.","faq5_q":"El enlace no funciona, ¿qué hago?","faq5_a":"Usa “Reportar archivo” en el pie de la página indicando el nombre del juego y lo revisaremos.","s_about":"Sobre Nexus Link","about_p":"Nexus Link es una plataforma de entrega de enlaces que funciona desde 2018. Ayudamos a creadores a compartir sus publicaciones de forma ordenada y a que cada persona llegue a su contenido en pocos pasos.","f_platform":"Plataforma de enlaces","f_about":"Acerca de","f_privacy":"Privacidad","f_terms":"Términos y condiciones","f_ads":"Publicidad","f_copyright":"Derechos de autor","f_report":"Reportar archivo","f_copy":"© 2018–2026 Nexus Link. Todos los derechos reservados.","f_content":"Contenido por joeldroidmods","f_served":"Publicidad servida por","redir_k":"Redireccionando","redir_t":"Cargando enlace final de descarga","redir_s":"No cierres esta pantalla. Tu enlace está abriendo ahora.","doc_about_t":"Acerca de Nexus Link","doc_about_b":"Nexus Link es una plataforma de enlaces que ayuda a creadores a compartir sus publicaciones de forma ordenada. Funciona desde 2018 y no aloja archivos: solo dirige a contenido publicado por terceros.","doc_privacy_t":"Política de privacidad","doc_privacy_b":"Nexus Link procesa únicamente la información técnica necesaria para preparar los enlaces. Los sitios de destino tienen sus propias políticas.\n\nEste sitio muestra publicidad de terceros servida por Adsterra, que puede usar cookies o identificadores para mostrar anuncios.\n\nNexus Link puede contar visitas y descargas de forma anónima y agregada por juego y país, sin guardar tu dirección IP ni datos personales.\n\nGuardamos en tu navegador solo tus preferencias de idioma y apariencia.","doc_terms_t":"Términos y condiciones","doc_terms_b":"Nexus Link facilita el acceso a enlaces publicados por creadores asociados. Usa cada archivo bajo tu responsabilidad y respeta sus licencias.\n\nAl continuar con una descarga se abre una página de nuestros patrocinadores en una pestaña nueva.","doc_ads_t":"Aviso de publicidad","doc_ads_b":"Este sitio se financia con publicidad de terceros servida por Adsterra (adsterra.com). Al continuar con una descarga se abre una página de un patrocinador en una pestaña nueva; puedes cerrarla y volver aquí. Nexus Link no controla el contenido de los anunciantes.","doc_copyright_t":"Derechos de autor","doc_copyright_b":"Nexus Link no aloja archivos y respeta la propiedad intelectual. Si eres titular de derechos y algún enlace te afecta, usa “Reportar archivo” indicando el nombre del juego y será revisado.","doc_report_t":"Reportar un archivo","doc_report_b":"Si un enlace está roto o parece inseguro, comunícate con joeldroidmods e incluye el nombre del juego.","doc_security_t":"Seguridad","doc_security_b":"Compartimos enlaces seguros, verificados por nuestro creador joeldroidmods antes de publicarlos.\n\nNexus Link no aloja archivos ni te pide registros, contraseñas ni datos de pago. Si algo te parece sospechoso, usa “Reportar archivo”.\n\nDescarga siempre desde la dirección oficial de Nexus Link.","doc_adv_t":"Nuestro anunciante","doc_adv_b":"La publicidad de este sitio la sirve Adsterra (adsterra.com), una red publicitaria de terceros. Nexus Link no controla los anuncios que se muestran ni el contenido de los anunciantes.\n\nLos ingresos publicitarios permiten que el servicio sea gratuito para ti.","doc_policies_t":"Políticas y condiciones"},"en":{"tagline":"Link delivery","aria_theme_dark":"Switch to dark mode","aria_theme_light":"Switch to light mode","aria_lang":"Change language","aria_settings":"Open settings","aria_close":"Close","settings":"Settings","set_home":"Home","set_about":"About us","set_policies":"Policies and terms","set_ads":"Our advertiser","set_security":"Security","set_report":"Report a file","set_theme":"Appearance","set_theme_light":"Light","set_theme_dark":"Dark","set_lang":"Language","active":"Active link","android":"Android","published_by":"Published by","creator":"Partner creator","loading_game":"Loading game…","confirming":"Confirming publication…","finding":"Finding the right post","btn_preparing_link":"Preparing link","btn_wait_moment":"Please wait a moment","btn_download":"Download","btn_preparing":"Preparing your download","btn_wait_1":"Wait {n} second…","btn_wait_n":"Wait {n} seconds…","btn_unavailable":"Link unavailable","btn_unavailable_d":"Check the address and try again","btn_waiting_link":"Waiting for link","btn_waiting_link_d":"Use the exact address shared by joeldroidmods","home_sub":"Open a URL generated from the panel to reach your game.","hint_idle":"Step 1 of 3 · Tap “Download” to start.","hint_c1":"Step 1 of 3 · Preparing your link…","hint_ready2":"Step 2 of 3 · Tap again to continue. A page from our sponsors will open in a new tab.","hint_c2":"Step 2 of 3 · Preparing your download…","hint_ready3":"Step 3 of 3 · Tap to continue. Another sponsor page will open and your download will stay here.","hint_redirecting":"Opening your download…","kick2":"Step 2 of 3","kick3":"Step 3 of 3","stage_title2":"Preparing your download","stage_sub2":"Your link will be ready in {n} s","stage_title3":"All set!","stage_sub3":"Tap the button to continue to your download.","err_nolink_t":"Download not set up","err_nolink_m":"This game does not have a final download link yet.","err_nf_t":"Game not found","err_nf_m":"“{slug}” is not published on Nexus Link or is paused. Check that the link is the one you copied from the panel.","err_load_t":"We couldn't load the link","err_load_m":"Check your internet connection and reload the page.","err_slow_m":"The connection is very slow. Reload the page to try again.","default_desc":"Published on Nexus Link.","title_suffix":"Link download","cover_alt":"Cover of","trust_free":"Free","trust_direct":"Direct link","trust_android":"Android ready","s_desc":"Description","s_video":"Video or tutorial","video_title":"Game video","s_how":"How it works","how1_t":"Tap “Download”","how1_d":"Your link is prepared in a few seconds.","how2_t":"Continue","how2_d":"A page from our sponsors opens in a new tab. When you come back here, a short wait begins.","how3_t":"Get your link","how3_d":"When the countdown ends, the final button takes you to your download.","s_why":"Why use Nexus Link","why1_t":"Direct links","why1_d":"We take you to the destination the creator published, with no sign-ups or forms.","why2_t":"Free for you","why2_d":"Using Nexus Link costs nothing. The site is supported by advertising.","why3_t":"Made for Android","why3_d":"Lightweight pages that load fast on your phone, even on mobile data.","why4_t":"Always up to date","why4_d":"The creator updates the link when a new version comes out.","s_install":"How to install an APK","ins1_t":"Open the downloaded file","ins1_d":"Find it in your Downloads folder or in your notifications.","ins2_t":"Allow the installation","ins2_d":"If Android asks, enable “Install unknown apps” for your browser or file manager.","ins3_t":"Install and open","ins3_d":"Tap Install and, when finished, open the game. Only download from sources you know.","s_faq":"Frequently asked questions","faq1_q":"Does it cost anything?","faq1_a":"No. Using Nexus Link is free. The site is funded by third-party advertising.","faq2_q":"Why does an ad page open?","faq2_a":"Nexus Link shows advertising served by Adsterra. When you continue with a download, a sponsor page opens in a new tab; you can close it and come back here.","faq3_q":"Does Nexus Link host the files?","faq3_a":"No. We only link to content published by the creator; the file is downloaded from the destination site.","faq4_q":"How long does it take?","faq4_a":"Under half a minute: a short initial wait, the sponsor page and a second wait before the final link.","faq5_q":"The link doesn't work, what do I do?","faq5_a":"Use “Report a file” at the bottom of the page with the game name and we will review it.","s_about":"About Nexus Link","about_p":"Nexus Link is a link delivery platform running since 2018. We help creators share their posts in an organized way so everyone reaches their content in a few steps.","f_platform":"Link platform","f_about":"About","f_privacy":"Privacy","f_terms":"Terms and conditions","f_ads":"Advertising","f_copyright":"Copyright","f_report":"Report a file","f_copy":"© 2018–2026 Nexus Link. All rights reserved.","f_content":"Content by joeldroidmods","f_served":"Advertising served by","redir_k":"Redirecting","redir_t":"Loading final download link","redir_s":"Don't close this screen. Your link is opening now.","doc_about_t":"About Nexus Link","doc_about_b":"Nexus Link is a link platform that helps creators share their posts in an organized way. It has been running since 2018 and does not host files: it only points to content published by third parties.","doc_privacy_t":"Privacy policy","doc_privacy_b":"Nexus Link only processes the technical information needed to prepare the links. Destination sites have their own policies.\n\nThis site shows third-party advertising served by Adsterra, which may use cookies or identifiers to display ads.\n\nNexus Link may count visits and downloads anonymously and in aggregate by game and country, without storing your IP address or personal data.\n\nWe only store your language and appearance preferences in your browser.","doc_terms_t":"Terms and conditions","doc_terms_b":"Nexus Link makes it easier to reach links published by partner creators. Use each file at your own responsibility and respect its licenses.\n\nWhen you continue with a download, a page from our sponsors opens in a new tab.","doc_ads_t":"Advertising notice","doc_ads_b":"This site is funded by third-party advertising served by Adsterra (adsterra.com). When you continue with a download, a sponsor page opens in a new tab; you can close it and come back here. Nexus Link does not control advertisers' content.","doc_copyright_t":"Copyright","doc_copyright_b":"Nexus Link does not host files and respects intellectual property. If you are a rights holder and a link affects you, use “Report a file” with the game name and it will be reviewed.","doc_report_t":"Report a file","doc_report_b":"If a link is broken or looks unsafe, contact joeldroidmods and include the game name.","doc_security_t":"Security","doc_security_b":"We share safe links, checked by our creator joeldroidmods before they are published.\n\nNexus Link does not host files and never asks for sign-ups, passwords or payment details. If anything looks suspicious, use “Report a file”.\n\nAlways download from the official Nexus Link address.","doc_adv_t":"Our advertiser","doc_adv_b":"Advertising on this site is served by Adsterra (adsterra.com), a third-party ad network. Nexus Link does not control the ads shown or the advertisers' content.\n\nAd revenue is what keeps the service free for you.","doc_policies_t":"Policies and terms"},"pt":{"tagline":"Entrega de links","aria_theme_dark":"Ativar modo escuro","aria_theme_light":"Ativar modo claro","aria_lang":"Mudar idioma","aria_settings":"Abrir configurações","aria_close":"Fechar","settings":"Configurações","set_home":"Início","set_about":"Sobre nós","set_policies":"Políticas e condições","set_ads":"Nosso anunciante","set_security":"Segurança","set_report":"Denunciar arquivo","set_theme":"Aparência","set_theme_light":"Claro","set_theme_dark":"Escuro","set_lang":"Idioma","active":"Link ativo","android":"Android","published_by":"Publicado por","creator":"Criador parceiro","loading_game":"Carregando jogo…","confirming":"Confirmando publicação…","finding":"Procurando a publicação correta","btn_preparing_link":"Preparando link","btn_wait_moment":"Aguarde um momento","btn_download":"Baixar","btn_preparing":"Preparando seu download","btn_wait_1":"Aguarde {n} segundo…","btn_wait_n":"Aguarde {n} segundos…","btn_unavailable":"Link indisponível","btn_unavailable_d":"Verifique o endereço e tente novamente","btn_waiting_link":"Aguardando link","btn_waiting_link_d":"Use o endereço exato compartilhado por joeldroidmods","home_sub":"Abra uma URL gerada pelo painel para acessar seu jogo.","hint_idle":"Passo 1 de 3 · Toque em “Baixar” para começar.","hint_c1":"Passo 1 de 3 · Preparando seu link…","hint_ready2":"Passo 2 de 3 · Toque novamente para continuar. Uma página de nossos patrocinadores abrirá em uma nova aba.","hint_c2":"Passo 2 de 3 · Preparando seu download…","hint_ready3":"Passo 3 de 3 · Toque para continuar. Outra página de nossos patrocinadores abrirá e seu download continuará aqui.","hint_redirecting":"Abrindo seu download…","kick2":"Passo 2 de 3","kick3":"Passo 3 de 3","stage_title2":"Preparando seu download","stage_sub2":"Seu link estará pronto em {n} s","stage_title3":"Tudo pronto!","stage_sub3":"Toque no botão para continuar para o seu download.","err_nolink_t":"Download não configurado","err_nolink_m":"Este jogo ainda não tem um link final de download.","err_nf_t":"Jogo não encontrado","err_nf_m":"“{slug}” não está publicado no Nexus Link ou está pausado. Verifique se o link é o que você copiou do painel.","err_load_t":"Não foi possível carregar o link","err_load_m":"Verifique sua conexão com a internet e recarregue a página.","err_slow_m":"A conexão está muito lenta. Recarregue a página para tentar novamente.","default_desc":"Publicado no Nexus Link.","title_suffix":"Download de links","cover_alt":"Capa de","trust_free":"Grátis","trust_direct":"Link direto","trust_android":"Pronto para Android","s_desc":"Descrição","s_video":"Vídeo ou tutorial","video_title":"Vídeo do jogo","s_how":"Como funciona","how1_t":"Toque em “Baixar”","how1_d":"Seu link é preparado em poucos segundos.","how2_t":"Continue","how2_d":"Uma página de nossos patrocinadores abre em uma nova aba. Ao voltar aqui, começa uma breve espera.","how3_t":"Receba seu link","how3_d":"Quando a contagem termina, o botão final leva você ao seu download.","s_why":"Por que usar o Nexus Link","why1_t":"Links diretos","why1_d":"Levamos você ao destino publicado pelo criador, sem cadastros nem formulários.","why2_t":"Grátis para você","why2_d":"Usar o Nexus Link não tem custo. O site é mantido com publicidade.","why3_t":"Feito para Android","why3_d":"Páginas leves que carregam rápido no celular, mesmo com dados móveis.","why4_t":"Sempre atualizado","why4_d":"O criador atualiza o link quando sai uma nova versão.","s_install":"Como instalar um APK","ins1_t":"Abra o arquivo baixado","ins1_d":"Procure na pasta Downloads ou nas notificações.","ins2_t":"Permita a instalação","ins2_d":"Se o Android pedir, ative “Instalar apps desconhecidos” para o seu navegador ou gerenciador de arquivos.","ins3_t":"Instale e abra","ins3_d":"Toque em Instalar e, ao terminar, abra o jogo. Baixe apenas de fontes que você conhece.","s_faq":"Perguntas frequentes","faq1_q":"Tem algum custo?","faq1_a":"Não. Usar o Nexus Link é grátis. O site é financiado por publicidade de terceiros.","faq2_q":"Por que uma página de anúncios é aberta?","faq2_a":"O Nexus Link exibe publicidade veiculada pela Adsterra. Ao continuar com um download, uma página patrocinadora abre em uma nova aba; você pode fechá-la e voltar aqui.","faq3_q":"O Nexus Link hospeda os arquivos?","faq3_a":"Não. Apenas direcionamos para conteúdo publicado pelo criador; o arquivo é baixado do site de destino.","faq4_q":"Quanto tempo leva?","faq4_a":"Menos de meio minuto: uma breve espera inicial, a página do patrocinador e uma segunda espera antes do link final.","faq5_q":"O link não funciona, o que faço?","faq5_a":"Use “Denunciar arquivo” no rodapé da página informando o nome do jogo e nós revisaremos.","s_about":"Sobre o Nexus Link","about_p":"O Nexus Link é uma plataforma de entrega de links que funciona desde 2018. Ajudamos criadores a compartilhar suas publicações de forma organizada para que cada pessoa chegue ao seu conteúdo em poucos passos.","f_platform":"Plataforma de links","f_about":"Sobre","f_privacy":"Privacidade","f_terms":"Termos e condições","f_ads":"Publicidade","f_copyright":"Direitos autorais","f_report":"Denunciar arquivo","f_copy":"© 2018–2026 Nexus Link. Todos os direitos reservados.","f_content":"Conteúdo por joeldroidmods","f_served":"Publicidade veiculada por","redir_k":"Redirecionando","redir_t":"Carregando link final de download","redir_s":"Não feche esta tela. Seu link está abrindo agora.","doc_about_t":"Sobre o Nexus Link","doc_about_b":"O Nexus Link é uma plataforma de links que ajuda criadores a compartilhar suas publicações de forma organizada. Funciona desde 2018 e não hospeda arquivos: apenas direciona para conteúdo publicado por terceiros.","doc_privacy_t":"Política de privacidade","doc_privacy_b":"O Nexus Link processa apenas as informações técnicas necessárias para preparar os links. Os sites de destino têm suas próprias políticas.\n\nEste site exibe publicidade de terceiros veiculada pela Adsterra, que pode usar cookies ou identificadores para exibir anúncios.\n\nO Nexus Link pode contar visitas e downloads de forma anônima e agregada por jogo e país, sem armazenar seu endereço IP nem dados pessoais.\n\nGuardamos no seu navegador apenas suas preferências de idioma e aparência.","doc_terms_t":"Termos e condições","doc_terms_b":"O Nexus Link facilita o acesso a links publicados por criadores parceiros. Use cada arquivo por sua conta e risco e respeite suas licenças.\n\nAo continuar com um download, uma página de nossos patrocinadores abre em uma nova aba.","doc_ads_t":"Aviso de publicidade","doc_ads_b":"Este site é financiado por publicidade de terceiros veiculada pela Adsterra (adsterra.com). Ao continuar com um download, uma página de um patrocinador abre em uma nova aba; você pode fechá-la e voltar aqui. O Nexus Link não controla o conteúdo dos anunciantes.","doc_copyright_t":"Direitos autorais","doc_copyright_b":"O Nexus Link não hospeda arquivos e respeita a propriedade intelectual. Se você é titular de direitos e algum link o afeta, use “Denunciar arquivo” informando o nome do jogo e ele será analisado.","doc_report_t":"Denunciar um arquivo","doc_report_b":"Se um link estiver quebrado ou parecer inseguro, entre em contato com joeldroidmods e informe o nome do jogo.","doc_security_t":"Segurança","doc_security_b":"Compartilhamos links seguros, verificados pelo nosso criador joeldroidmods antes de serem publicados.\n\nO Nexus Link não hospeda arquivos nem pede cadastros, senhas ou dados de pagamento. Se algo parecer suspeito, use “Denunciar arquivo”.\n\nBaixe sempre pelo endereço oficial do Nexus Link.","doc_adv_t":"Nosso anunciante","doc_adv_b":"A publicidade deste site é veiculada pela Adsterra (adsterra.com), uma rede de anúncios de terceiros. O Nexus Link não controla os anúncios exibidos nem o conteúdo dos anunciantes.\n\nA receita publicitária é o que mantém o serviço gratuito para você.","doc_policies_t":"Políticas e condições"}};
+var GIST_ID="c3537c2e402ac4f1e2c3846f89c7c842",GIST_USER="JoelDroidModsYT",FILE="acortador.json",THEME_KEY="nexus-theme",LANG_KEY="nexus-lang";
+var I18N={"es":{"aria_theme_dark":"Activar modo oscuro","aria_theme_light":"Activar modo claro","aria_lang":"Cambiar idioma","aria_close":"Cerrar","set_theme":"Apariencia","set_theme_light":"Claro","set_theme_dark":"Oscuro","set_lang":"Idioma","how1_t":"Toca “Descargar”","how1_d":"Tu enlace se prepara en unos segundos.","how2_t":"Continúa","how2_d":"Se abre una página de nuestros patrocinadores en una pestaña nueva. Al volver aquí, comienza una breve espera.","how3_t":"Recibe tu enlace","how3_d":"Cuando termina la cuenta, el botón final te lleva a tu descarga.","faq1_q":"¿Tiene algún costo?","faq1_a":"No. Usar Nexus Link es gratis. El sitio se financia con publicidad de terceros.","faq2_q":"¿Por qué se abre una página de anuncios?","faq2_a":"Nexus Link muestra publicidad servida por Adsterra. Al continuar con una descarga se abre una página patrocinadora en una pestaña nueva; puedes cerrarla y volver aquí.","faq3_q":"¿Nexus Link aloja los archivos?","faq3_a":"No. Solo enlazamos contenido publicado por el creador; el archivo se descarga desde el sitio de destino.","faq4_q":"¿Cuánto tarda?","faq4_a":"Menos de medio minuto: una breve espera inicial, la página del patrocinador y una segunda espera antes del enlace final.","faq5_q":"El enlace no funciona, ¿qué hago?","faq5_a":"Usa “Reportar archivo” en el pie de la página indicando el nombre del juego y lo revisaremos.","s_faq":"Preguntas frecuentes","f_about":"Acerca de","f_privacy":"Privacidad","f_terms":"Términos y condiciones","f_ads":"Publicidad","f_copyright":"Derechos de autor","f_report":"Reportar archivo","f_copy":"© 2018–2026 Nexus Link. Todos los derechos reservados.","f_content":"Contenido por joeldroidmods","doc_about_t":"Acerca de Nexus Link","doc_about_b":"Nexus Link es una plataforma de enlaces que ayuda a creadores a compartir sus publicaciones de forma ordenada. Funciona desde 2018 y no aloja archivos: solo dirige a contenido publicado por terceros.","doc_privacy_t":"Política de privacidad","doc_privacy_b":"Nexus Link procesa únicamente la información técnica necesaria para preparar los enlaces. Los sitios de destino tienen sus propias políticas.\n\nEste sitio muestra publicidad de terceros, que puede usar cookies o identificadores para mostrar anuncios.\n\nNexus Link cuenta visitas y descargas de forma anónima y agregada por juego y país, sin guardar tu dirección IP ni datos personales.\n\nGuardamos en tu navegador solo tus preferencias de idioma y apariencia.","doc_terms_t":"Términos y condiciones","doc_terms_b":"Nexus Link facilita el acceso a enlaces publicados por creadores asociados. Usa cada archivo bajo tu responsabilidad y respeta sus licencias.\n\nAl continuar con una descarga se abre una página de nuestros patrocinadores en una pestaña nueva.","doc_ads_t":"Aviso de publicidad","doc_copyright_t":"Derechos de autor","doc_copyright_b":"Nexus Link no aloja archivos y respeta la propiedad intelectual. Si eres titular de derechos y algún enlace te afecta, usa “Reportar archivo” indicando el nombre del juego y será revisado.","doc_report_t":"Reportar un archivo","doc_report_b":"Si un enlace está roto o parece inseguro, comunícate con joeldroidmods e incluye el nombre del juego.","doc_security_t":"Seguridad","doc_security_b":"Compartimos enlaces seguros, verificados por nuestro creador joeldroidmods antes de publicarlos.\n\nNexus Link no aloja archivos ni te pide registros, contraseñas ni datos de pago. Si algo te parece sospechoso, usa “Reportar archivo”.\n\nDescarga siempre desde la dirección oficial de Nexus Link.","doc_policies_t":"Políticas y condiciones","set_policies":"Políticas y condiciones","set_security":"Seguridad","set_report":"Reportar archivo","set_about":"Sobre nosotros","set_ads":"Nuestro anunciante","settings":"Configuración","nav_what":"Qué hacemos","nav_how":"Cómo funciona","nav_catalog":"Publicaciones","nav_stats":"Estadísticas","nav_faq":"Preguntas","aria_menu":"Abrir menú","menu":"Menú","tagline":"Plataforma de enlaces","hero_pill":"Plataforma de enlaces · desde 2018","hero_h1a":"Enlaces claros, seguros y ","hero_h1b":"rápidos","hero_lead":"Nexus Link convierte direcciones largas en enlaces cortos y ordenados, verificados por el creador y pensados para el celular. Sin registros, sin complicaciones.","hero_cta1":"Ver publicaciones","hero_cta2":"Cómo funciona","hero_official":"Dirección oficial","mock_title":"Tu enlace en 3 pasos","mock_done":"Listo para continuar","s_what":"Qué hacemos","what_lead":"Somos una plataforma de entrega de enlaces: conectamos a las personas con el contenido que publican los creadores, de forma ordenada y transparente.","what1_t":"Acortamos y ordenamos enlaces","what1_d":"Cada publicación tiene su propia dirección corta, fácil de compartir: nexuslinkyt.online/nombre.","what2_t":"Verificamos cada enlace","what2_d":"Nuestro creador joeldroidmods revisa cada enlace antes de publicarlo.","what3_t":"Pasos claros","what3_d":"Cada persona ve qué sigue en todo momento: pasos numerados y cuenta regresiva.","what4_t":"Hecho para el celular","what4_d":"Páginas ligeras que cargan rápido, incluso con datos móviles.","what5_t":"Siempre actualizado","what5_d":"Las publicaciones se actualizan en tiempo real desde nuestro panel.","what6_t":"Gratis para ti","what6_d":"El servicio se sostiene con publicidad de terceros, indicada con claridad.","s_how":"Cómo funciona","how_lead":"Tres pasos y llegas a tu destino.","s_aud":"Pensado para todos","aud1_t":"Para quien descarga","aud1_1":"Sin registros ni formularios","aud1_2":"Funciona desde cualquier celular o navegador","aud1_3":"Te lleva al destino que publicó el creador","aud2_t":"Para creadores asociados","aud2_1":"Tu publicación con una dirección corta propia","aud2_2":"Cambios visibles al instante desde el panel","aud2_3":"Estadísticas reales de visitas y descargas","s_cat":"Últimas publicaciones","cat_lead":"Enlaces verificados publicados recientemente.","cat_open":"Abrir enlace","cat_loading":"Cargando publicaciones…","cat_empty":"Pronto habrá nuevas publicaciones.","s_stats":"La plataforma en números","stats_lead":"Datos reales, contados de forma anónima y actualizados automáticamente.","st_games":"Publicaciones activas","st_usersToday":"Usuarios hoy","st_users":"Usuarios en total","st_dl":"Descargas completadas","st_views":"Visitas totales","st_countries":"Países","st_week":"Usuarios por día (últimos 7 días)","st_top":"Publicaciones más populares","st_visits":"visitas","s_sec":"Transparencia y seguridad","sec1_t":"Enlaces verificados","sec1_d":"Cada enlace lo revisa joeldroidmods antes de publicarse.","sec2_t":"No alojamos archivos","sec2_d":"Solo enlazamos contenido publicado por terceros.","sec3_t":"Sin datos sensibles","sec3_d":"Nunca pedimos registros, contraseñas ni datos de pago.","sec4_t":"Publicidad indicada","sec4_d":"Mostramos publicidad de terceros y lo decimos con claridad.","faq6_q":"¿Cómo se cuentan las visitas?","faq6_a":"De forma anónima y agregada por día, juego y país. No guardamos tu dirección IP ni datos personales.","cta_t":"¿Tienes un enlace de Nexus Link?","cta_d":"Ábrelo directamente, o explora las últimas publicaciones.","cta_b":"Explorar publicaciones","s_about":"Sobre Nexus Link","about_p":"Nexus Link es una plataforma de entrega de enlaces que funciona desde 2018. Ayudamos a creadores a compartir sus publicaciones de forma ordenada y a que cada persona llegue a su contenido en pocos pasos.","f_platform":"Plataforma de enlaces","doc_ads_b":"La publicidad de este sitio la sirven redes publicitarias de terceros. Nexus Link no controla los anuncios que se muestran ni el contenido de los anunciantes.\n\nLos ingresos publicitarios permiten que el servicio sea gratuito para ti. Al continuar con una descarga puede abrirse una página de un patrocinador en una pestaña nueva; puedes cerrarla y volver."},"en":{"aria_theme_dark":"Switch to dark mode","aria_theme_light":"Switch to light mode","aria_lang":"Change language","aria_close":"Close","set_theme":"Appearance","set_theme_light":"Light","set_theme_dark":"Dark","set_lang":"Language","how1_t":"Tap “Download”","how1_d":"Your link is prepared in a few seconds.","how2_t":"Continue","how2_d":"A page from our sponsors opens in a new tab. When you come back here, a short wait begins.","how3_t":"Get your link","how3_d":"When the countdown ends, the final button takes you to your download.","faq1_q":"Does it cost anything?","faq1_a":"No. Using Nexus Link is free. The site is funded by third-party advertising.","faq2_q":"Why does an ad page open?","faq2_a":"Nexus Link shows advertising served by Adsterra. When you continue with a download, a sponsor page opens in a new tab; you can close it and come back here.","faq3_q":"Does Nexus Link host the files?","faq3_a":"No. We only link to content published by the creator; the file is downloaded from the destination site.","faq4_q":"How long does it take?","faq4_a":"Under half a minute: a short initial wait, the sponsor page and a second wait before the final link.","faq5_q":"The link doesn't work, what do I do?","faq5_a":"Use “Report a file” at the bottom of the page with the game name and we will review it.","s_faq":"Frequently asked questions","f_about":"About","f_privacy":"Privacy","f_terms":"Terms and conditions","f_ads":"Advertising","f_copyright":"Copyright","f_report":"Report a file","f_copy":"© 2018–2026 Nexus Link. All rights reserved.","f_content":"Content by joeldroidmods","doc_about_t":"About Nexus Link","doc_about_b":"Nexus Link is a link platform that helps creators share their posts in an organized way. It has been running since 2018 and does not host files: it only points to content published by third parties.","doc_privacy_t":"Privacy policy","doc_privacy_b":"Nexus Link only processes the technical information needed to prepare the links. Destination sites have their own policies.\n\nThis site shows third-party advertising, which may use cookies or identifiers to display ads.\n\nNexus Link counts visits and downloads anonymously and in aggregate by release and country, without storing your IP address or personal data.\n\nWe only store your language and appearance preferences in your browser.","doc_terms_t":"Terms and conditions","doc_terms_b":"Nexus Link makes it easier to reach links published by partner creators. Use each file at your own responsibility and respect its licenses.\n\nWhen you continue with a download, a page from our sponsors opens in a new tab.","doc_ads_t":"Advertising notice","doc_copyright_t":"Copyright","doc_copyright_b":"Nexus Link does not host files and respects intellectual property. If you are a rights holder and a link affects you, use “Report a file” with the game name and it will be reviewed.","doc_report_t":"Report a file","doc_report_b":"If a link is broken or looks unsafe, contact joeldroidmods and include the game name.","doc_security_t":"Security","doc_security_b":"We share safe links, checked by our creator joeldroidmods before they are published.\n\nNexus Link does not host files and never asks for sign-ups, passwords or payment details. If anything looks suspicious, use “Report a file”.\n\nAlways download from the official Nexus Link address.","doc_policies_t":"Policies and terms","set_policies":"Policies and terms","set_security":"Security","set_report":"Report a file","set_about":"About us","set_ads":"Our advertiser","settings":"Settings","nav_what":"What we do","nav_how":"How it works","nav_catalog":"Releases","nav_stats":"Statistics","nav_faq":"FAQ","aria_menu":"Open menu","menu":"Menu","tagline":"Link platform","hero_pill":"Link platform · since 2018","hero_h1a":"Clear, safe and ","hero_h1b":"fast links","hero_lead":"Nexus Link turns long addresses into short, organized links, verified by the creator and built for mobile. No sign-ups, no hassle.","hero_cta1":"See releases","hero_cta2":"How it works","hero_official":"Official address","mock_title":"Your link in 3 steps","mock_done":"Ready to continue","s_what":"What we do","what_lead":"We are a link delivery platform: we connect people with the content creators publish, in an organized and transparent way.","what1_t":"We shorten and organize links","what1_d":"Every release gets its own short address that is easy to share: nexuslinkyt.online/name.","what2_t":"We check every link","what2_d":"Our creator joeldroidmods checks every link before publishing it.","what3_t":"Clear steps","what3_d":"Everyone sees what comes next at all times: numbered steps and a countdown.","what4_t":"Built for mobile","what4_d":"Lightweight pages that load fast, even on mobile data.","what5_t":"Always up to date","what5_d":"Releases are updated in real time from our dashboard.","what6_t":"Free for you","what6_d":"The service is supported by third-party advertising, clearly disclosed.","s_how":"How it works","how_lead":"Three steps and you reach your destination.","s_aud":"Made for everyone","aud1_t":"For people downloading","aud1_1":"No sign-ups or forms","aud1_2":"Works on any phone or browser","aud1_3":"Takes you to the destination the creator published","aud2_t":"For partner creators","aud2_1":"Your release with its own short address","aud2_2":"Changes visible instantly from the dashboard","aud2_3":"Real visit and download statistics","s_cat":"Latest releases","cat_lead":"Verified links published recently.","cat_open":"Open link","cat_loading":"Loading releases…","cat_empty":"New releases coming soon.","s_stats":"The platform in numbers","stats_lead":"Real data, counted anonymously and updated automatically.","st_games":"Active releases","st_usersToday":"Users today","st_users":"Total users","st_dl":"Completed downloads","st_views":"Total visits","st_countries":"Countries","st_week":"Users per day (last 7 days)","st_top":"Most popular releases","st_visits":"visits","s_sec":"Transparency and security","sec1_t":"Verified links","sec1_d":"Every link is checked by joeldroidmods before it goes live.","sec2_t":"We don't host files","sec2_d":"We only link to content published by third parties.","sec3_t":"No sensitive data","sec3_d":"We never ask for sign-ups, passwords or payment details.","sec4_t":"Disclosed advertising","sec4_d":"We show third-party advertising and say so clearly.","faq6_q":"How are visits counted?","faq6_a":"Anonymously and in aggregate by day, release and country. We don't store your IP address or personal data.","cta_t":"Do you have a Nexus Link address?","cta_d":"Open it directly, or browse the latest releases.","cta_b":"Browse releases","s_about":"About Nexus Link","about_p":"Nexus Link is a link delivery platform running since 2018. We help creators share their releases in an organized way so everyone reaches their content in a few steps.","f_platform":"Link platform","doc_ads_b":"Advertising on this site is served by third-party ad networks. Nexus Link does not control the ads shown or the advertisers' content.\n\nAd revenue is what keeps the service free for you. When you continue with a download, a sponsor page may open in a new tab; you can close it and come back."},"pt":{"aria_theme_dark":"Ativar modo escuro","aria_theme_light":"Ativar modo claro","aria_lang":"Mudar idioma","aria_close":"Fechar","set_theme":"Aparência","set_theme_light":"Claro","set_theme_dark":"Escuro","set_lang":"Idioma","how1_t":"Toque em “Baixar”","how1_d":"Seu link é preparado em poucos segundos.","how2_t":"Continue","how2_d":"Uma página de nossos patrocinadores abre em uma nova aba. Ao voltar aqui, começa uma breve espera.","how3_t":"Receba seu link","how3_d":"Quando a contagem termina, o botão final leva você ao seu download.","faq1_q":"Tem algum custo?","faq1_a":"Não. Usar o Nexus Link é grátis. O site é financiado por publicidade de terceiros.","faq2_q":"Por que uma página de anúncios é aberta?","faq2_a":"O Nexus Link exibe publicidade veiculada pela Adsterra. Ao continuar com um download, uma página patrocinadora abre em uma nova aba; você pode fechá-la e voltar aqui.","faq3_q":"O Nexus Link hospeda os arquivos?","faq3_a":"Não. Apenas direcionamos para conteúdo publicado pelo criador; o arquivo é baixado do site de destino.","faq4_q":"Quanto tempo leva?","faq4_a":"Menos de meio minuto: uma breve espera inicial, a página do patrocinador e uma segunda espera antes do link final.","faq5_q":"O link não funciona, o que faço?","faq5_a":"Use “Denunciar arquivo” no rodapé da página informando o nome do jogo e nós revisaremos.","s_faq":"Perguntas frequentes","f_about":"Sobre","f_privacy":"Privacidade","f_terms":"Termos e condições","f_ads":"Publicidade","f_copyright":"Direitos autorais","f_report":"Denunciar arquivo","f_copy":"© 2018–2026 Nexus Link. Todos os direitos reservados.","f_content":"Conteúdo por joeldroidmods","doc_about_t":"Sobre o Nexus Link","doc_about_b":"O Nexus Link é uma plataforma de links que ajuda criadores a compartilhar suas publicações de forma organizada. Funciona desde 2018 e não hospeda arquivos: apenas direciona para conteúdo publicado por terceiros.","doc_privacy_t":"Política de privacidade","doc_privacy_b":"O Nexus Link processa apenas as informações técnicas necessárias para preparar os links. Os sites de destino têm suas próprias políticas.\n\nEste site exibe publicidade de terceiros, que pode usar cookies ou identificadores para exibir anúncios.\n\nO Nexus Link conta visitas e downloads de forma anônima e agregada por jogo e país, sem armazenar seu endereço IP nem dados pessoais.\n\nGuardamos no seu navegador apenas suas preferências de idioma e aparência.","doc_terms_t":"Termos e condições","doc_terms_b":"O Nexus Link facilita o acesso a links publicados por criadores parceiros. Use cada arquivo por sua conta e risco e respeite suas licenças.\n\nAo continuar com um download, uma página de nossos patrocinadores abre em uma nova aba.","doc_ads_t":"Aviso de publicidade","doc_copyright_t":"Direitos autorais","doc_copyright_b":"O Nexus Link não hospeda arquivos e respeita a propriedade intelectual. Se você é titular de direitos e algum link o afeta, use “Denunciar arquivo” informando o nome do jogo e ele será analisado.","doc_report_t":"Denunciar um arquivo","doc_report_b":"Se um link estiver quebrado ou parecer inseguro, entre em contato com joeldroidmods e informe o nome do jogo.","doc_security_t":"Segurança","doc_security_b":"Compartilhamos links seguros, verificados pelo nosso criador joeldroidmods antes de serem publicados.\n\nO Nexus Link não hospeda arquivos nem pede cadastros, senhas ou dados de pagamento. Se algo parecer suspeito, use “Denunciar arquivo”.\n\nBaixe sempre pelo endereço oficial do Nexus Link.","doc_policies_t":"Políticas e condições","set_policies":"Políticas e condições","set_security":"Segurança","set_report":"Denunciar arquivo","set_about":"Sobre nós","set_ads":"Nosso anunciante","settings":"Configurações","nav_what":"O que fazemos","nav_how":"Como funciona","nav_catalog":"Publicações","nav_stats":"Estatísticas","nav_faq":"Perguntas","aria_menu":"Abrir menu","menu":"Menu","tagline":"Plataforma de links","hero_pill":"Plataforma de links · desde 2018","hero_h1a":"Links claros, seguros e ","hero_h1b":"rápidos","hero_lead":"O Nexus Link transforma endereços longos em links curtos e organizados, verificados pelo criador e pensados para o celular. Sem cadastro, sem complicação.","hero_cta1":"Ver publicações","hero_cta2":"Como funciona","hero_official":"Endereço oficial","mock_title":"Seu link em 3 passos","mock_done":"Pronto para continuar","s_what":"O que fazemos","what_lead":"Somos uma plataforma de entrega de links: conectamos as pessoas ao conteúdo que os criadores publicam, de forma organizada e transparente.","what1_t":"Encurtamos e organizamos links","what1_d":"Cada publicação tem seu próprio endereço curto, fácil de compartilhar: nexuslinkyt.online/nome.","what2_t":"Verificamos cada link","what2_d":"Nosso criador joeldroidmods revisa cada link antes de publicá-lo.","what3_t":"Passos claros","what3_d":"Cada pessoa vê o que vem a seguir o tempo todo: passos numerados e contagem regressiva.","what4_t":"Feito para o celular","what4_d":"Páginas leves que carregam rápido, mesmo com dados móveis.","what5_t":"Sempre atualizado","what5_d":"As publicações são atualizadas em tempo real pelo nosso painel.","what6_t":"Grátis para você","what6_d":"O serviço é mantido com publicidade de terceiros, indicada com clareza.","s_how":"Como funciona","how_lead":"Três passos e você chega ao seu destino.","s_aud":"Pensado para todos","aud1_t":"Para quem baixa","aud1_1":"Sem cadastros nem formulários","aud1_2":"Funciona em qualquer celular ou navegador","aud1_3":"Leva você ao destino publicado pelo criador","aud2_t":"Para criadores parceiros","aud2_1":"Sua publicação com um endereço curto próprio","aud2_2":"Mudanças visíveis na hora pelo painel","aud2_3":"Estatísticas reais de visitas e downloads","s_cat":"Últimas publicações","cat_lead":"Links verificados publicados recentemente.","cat_open":"Abrir link","cat_loading":"Carregando publicações…","cat_empty":"Em breve haverá novas publicações.","s_stats":"A plataforma em números","stats_lead":"Dados reais, contados de forma anônima e atualizados automaticamente.","st_games":"Publicações ativas","st_usersToday":"Usuários hoje","st_users":"Usuários no total","st_dl":"Downloads concluídos","st_views":"Visitas totais","st_countries":"Países","st_week":"Usuários por dia (últimos 7 dias)","st_top":"Publicações mais populares","st_visits":"visitas","s_sec":"Transparência e segurança","sec1_t":"Links verificados","sec1_d":"Cada link é revisado por joeldroidmods antes de ser publicado.","sec2_t":"Não hospedamos arquivos","sec2_d":"Apenas direcionamos para conteúdo publicado por terceiros.","sec3_t":"Sem dados sensíveis","sec3_d":"Nunca pedimos cadastros, senhas nem dados de pagamento.","sec4_t":"Publicidade indicada","sec4_d":"Exibimos publicidade de terceiros e dizemos isso com clareza.","faq6_q":"Como as visitas são contadas?","faq6_a":"De forma anônima e agregada por dia, jogo e país. Não armazenamos seu endereço IP nem dados pessoais.","cta_t":"Você tem um link do Nexus Link?","cta_d":"Abra-o diretamente ou explore as últimas publicações.","cta_b":"Explorar publicações","s_about":"Sobre o Nexus Link","about_p":"O Nexus Link é uma plataforma de entrega de links que funciona desde 2018. Ajudamos criadores a compartilhar suas publicações de forma organizada para que cada pessoa chegue ao seu conteúdo em poucos passos.","f_platform":"Plataforma de links","doc_ads_b":"A publicidade deste site é veiculada por redes de anúncios de terceiros. O Nexus Link não controla os anúncios exibidos nem o conteúdo dos anunciantes.\n\nA receita publicitária é o que mantém o serviço gratuito para você. Ao continuar com um download, uma página de um patrocinador pode abrir em uma nova aba; você pode fechá-la e voltar."}};
 var $=function(i){return document.getElementById(i)};
-var root=document.documentElement;
-var lang=root.getAttribute("lang");if(!I18N[lang])lang="es";
-var slug="",current=null,state="idle";
-
-/* ---------- Idioma ---------- */
+var root=document.documentElement,lang=root.getAttribute("lang");if(!I18N[lang])lang="es";
+var games=[],bySlug={},pub=null;
 function t(k,v){var s=(I18N[lang]&&I18N[lang][k])||I18N.es[k]||k;if(v)for(var x in v)s=s.split("{"+x+"}").join(v[x]);return s}
+function nf(n){return Number(n||0).toLocaleString(lang==="en"?"en-US":lang==="pt"?"pt-BR":"es-PE")}
 var FLAGS={
  es:'<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#d91023"/><rect x="8" width="8" height="16" fill="#fff"/></svg>',
  en:'<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#fff"/><g fill="#b22234"><rect width="24" height="1.23"/><rect y="2.46" width="24" height="1.23"/><rect y="4.92" width="24" height="1.23"/><rect y="7.38" width="24" height="1.23"/><rect y="9.85" width="24" height="1.23"/><rect y="12.3" width="24" height="1.23"/><rect y="14.77" width="24" height="1.23"/></g><rect width="10.5" height="8.6" fill="#3c3b6e"/></svg>',
- pt:'<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#009c3b"/><path d="M12 2.2L21.4 8 12 13.8 2.6 8z" fill="#ffdf00"/><circle cx="12" cy="8" r="3.3" fill="#002776"/></svg>'
-};
-var LNAMES={es:"Español",en:"English",pt:"Português (Brasil)"};
-var ORDER=["es","en","pt"];
-function localized(item){
-  var o={subtitle:item.subtitle||"",description:item.description||"",buttonText:item.buttonText||""};
-  var tr=item.i18n&&item.i18n[lang];
-  if(lang!=="es"&&tr&&typeof tr==="object"){["subtitle","description","buttonText"].forEach(function(k){if(typeof tr[k]==="string"&&tr[k].trim())o[k]=tr[k]})}
-  return o;
-}
-function staticText(){
-  document.querySelectorAll("[data-i18n]").forEach(function(el){el.textContent=t(el.getAttribute("data-i18n"))});
-}
-function paintLangUI(){
-  $("langFlag").innerHTML=FLAGS[lang];
-  $("langBtn").setAttribute("aria-label",t("aria_lang"));$("langBtn").title=LNAMES[lang];
-  $("setBtn").setAttribute("aria-label",t("aria_settings"));
-  $("docClose").setAttribute("aria-label",t("aria_close"));$("setClose").setAttribute("aria-label",t("aria_close"));
-  var m=$("langMenu");m.innerHTML="";
-  var s=$("segLang");s.innerHTML="";
-  ORDER.forEach(function(c){
-    [m,s].forEach(function(box){
-      var b=document.createElement("button");b.type="button";b.setAttribute("role",box===m?"menuitemradio":"radio");b.setAttribute("aria-checked",String(c===lang));
-      b.innerHTML=FLAGS[c]+"<span></span>";b.lastChild.textContent=LNAMES[c];
-      b.onclick=function(){setLang(c);closeLangMenu()};
-      box.appendChild(b);
-    });
-  });
+ pt:'<svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#009c3b"/><path d="M12 2.2L21.4 8 12 13.8 2.6 8z" fill="#ffdf00"/><circle cx="12" cy="8" r="3.3" fill="#002776"/></svg>'};
+var LNAMES={es:"Español",en:"English",pt:"Português (Brasil)"},ORDER=["es","en","pt"];
+function staticText(){document.querySelectorAll("[data-i18n]").forEach(function(el){el.textContent=t(el.getAttribute("data-i18n"))})}
+function paintLang(){
+  $("langFlag").innerHTML=FLAGS[lang];$("langBtn").setAttribute("aria-label",t("aria_lang"));$("langBtn").title=LNAMES[lang];
+  $("menuBtn").setAttribute("aria-label",t("aria_menu"));$("docClose").setAttribute("aria-label",t("aria_close"));$("menuClose").setAttribute("aria-label",t("aria_close"));
+  var m=$("langMenu"),s=$("segLang");m.innerHTML="";s.innerHTML="";
+  ORDER.forEach(function(c){[m,s].forEach(function(box){var b=document.createElement("button");b.type="button";b.setAttribute("role",box===m?"menuitemradio":"radio");b.setAttribute("aria-checked",String(c===lang));b.innerHTML=FLAGS[c]+"<span></span>";b.lastChild.textContent=LNAMES[c];b.onclick=function(){setLang(c);closeLang()};box.appendChild(b)})});
   paintTheme();
 }
-function setLang(c){
-  if(!I18N[c]||c===lang)return;
-  lang=c;root.setAttribute("lang",c);try{localStorage.setItem(LANG_KEY,c)}catch(e){}
-  staticText();paintLangUI();renderGame();refreshFlowText();
-  if($("docLayer").classList.contains("open")&&openDocKey)openDoc(openDocKey);
-}
-function closeLangMenu(){$("langMenu").hidden=true;$("langBtn").setAttribute("aria-expanded","false")}
-$("langBtn").onclick=function(e){e.stopPropagation();var m=$("langMenu"),open=m.hidden;m.hidden=!open;this.setAttribute("aria-expanded",String(open))};
-document.addEventListener("click",function(e){if(!$("langMenu").hidden&&!$("langMenu").contains(e.target))closeLangMenu()});
-
-/* ---------- Tema ---------- */
-var ICON_SUN='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
-var ICON_MOON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>';
-function curTheme(){return root.getAttribute("data-theme")==="dark"?"dark":"light"}
-function paintTheme(){
-  var d=curTheme()==="dark",b=$("themeBtn");
-  b.innerHTML=d?ICON_SUN:ICON_MOON;
-  var lbl=t(d?"aria_theme_light":"aria_theme_dark");b.setAttribute("aria-label",lbl);b.title=lbl;
-  var mt=$("metaTheme");if(mt)mt.setAttribute("content",d?"#0a1020":"#f4f7fd");
-  document.querySelectorAll("[data-theme-set]").forEach(function(x){x.setAttribute("aria-checked",String(x.getAttribute("data-theme-set")===curTheme()))});
-}
+function setLang(c){if(!I18N[c]||c===lang)return;lang=c;root.setAttribute("lang",c);try{localStorage.setItem(LANG_KEY,c)}catch(e){}staticText();paintLang();renderCatalog();renderStats();if($("docLayer").classList.contains("open")&&openKey)openDoc(openKey)}
+function closeLang(){$("langMenu").hidden=true;$("langBtn").setAttribute("aria-expanded","false")}
+$("langBtn").onclick=function(e){e.stopPropagation();var m=$("langMenu"),o=m.hidden;m.hidden=!o;this.setAttribute("aria-expanded",String(o))};
+document.addEventListener("click",function(e){if(!$("langMenu").hidden&&!$("langMenu").contains(e.target))closeLang()});
+/* tema */
+var SUN='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',MOON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>';
+function theme(){return root.getAttribute("data-theme")==="dark"?"dark":"light"}
+function paintTheme(){var d=theme()==="dark",b=$("themeBtn");b.innerHTML=d?SUN:MOON;var l=t(d?"aria_theme_light":"aria_theme_dark");b.setAttribute("aria-label",l);b.title=l;$("metaTheme").setAttribute("content",d?"#0a1020":"#f4f7fd");document.querySelectorAll("[data-theme-set]").forEach(function(x){x.setAttribute("aria-checked",String(x.getAttribute("data-theme-set")===theme()))})}
 function setTheme(m){root.setAttribute("data-theme",m);try{localStorage.setItem(THEME_KEY,m)}catch(e){}paintTheme()}
-$("themeBtn").onclick=function(){setTheme(curTheme()==="dark"?"light":"dark")};
+$("themeBtn").onclick=function(){setTheme(theme()==="dark"?"light":"dark")};
 document.querySelectorAll("[data-theme-set]").forEach(function(b){b.onclick=function(){setTheme(b.getAttribute("data-theme-set"))}});
-
-/* ---------- Ventanas ---------- */
-var openDocKey="";
-function lockBody(on){document.body.classList.toggle("modal-open",!!on)}
-function openDoc(key){
-  openDocKey=key;var body=$("docBody");body.innerHTML="";
-  function paras(txt){String(txt).split("\n\n").forEach(function(p){var e=document.createElement("p");e.textContent=p;body.appendChild(e)})}
-  if(key==="policies"){
-    $("docTitle").textContent=t("doc_policies_t");
-    ["privacy","terms","copyright"].forEach(function(k){var h=document.createElement("h3");h.textContent=t("doc_"+k+"_t");body.appendChild(h);paras(t("doc_"+k+"_b"))});
-  }else{$("docTitle").textContent=t("doc_"+key+"_t");paras(t("doc_"+key+"_b"))}
-  $("setLayer").classList.remove("open");$("docLayer").classList.add("open");lockBody(true);
-}
-function closeAll(){$("docLayer").classList.remove("open");$("setLayer").classList.remove("open");openDocKey="";lockBody(false)}
+/* ventanas */
+var openKey="";
+function lock(on){document.body.classList.toggle("modal-open",!!on)}
+function openDoc(key){openKey=key;var body=$("docBody");body.innerHTML="";
+  function paras(x){String(x).split("\n\n").forEach(function(p){var e=document.createElement("p");e.textContent=p;body.appendChild(e)})}
+  if(key==="policies"){$("docTitle").textContent=t("doc_policies_t");["privacy","terms","copyright"].forEach(function(k){var h=document.createElement("h3");h.textContent=t("doc_"+k+"_t");body.appendChild(h);paras(t("doc_"+k+"_b"))})}
+  else{$("docTitle").textContent=t("doc_"+key+"_t");paras(t("doc_"+key+"_b"))}
+  $("menuLayer").classList.remove("open");$("docLayer").classList.add("open");lock(true)}
+function closeAll(){$("docLayer").classList.remove("open");$("menuLayer").classList.remove("open");openKey="";lock(false)}
 document.querySelectorAll("[data-doc]").forEach(function(b){b.onclick=function(){openDoc(b.getAttribute("data-doc"))}});
-$("docClose").onclick=closeAll;$("setClose").onclick=closeAll;
-$("setBtn").onclick=function(){closeLangMenu();$("setLayer").classList.add("open");lockBody(true)};
-["docLayer","setLayer"].forEach(function(id){$(id).addEventListener("click",function(e){if(e.target===this)closeAll()})});
-document.addEventListener("keydown",function(e){if(e.key==="Escape"){closeAll();closeLangMenu()}});
+$("docClose").onclick=closeAll;$("menuClose").onclick=closeAll;
+$("menuBtn").onclick=function(){closeLang();$("menuLayer").classList.add("open");lock(true)};
+$("menuLayer").querySelectorAll("nav a").forEach(function(a){a.addEventListener("click",closeAll)});
+["docLayer","menuLayer"].forEach(function(id){$(id).addEventListener("click",function(e){if(e.target===this)closeAll()})});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){closeAll();closeLang()}});
 
-/* ---------- Datos del juego ---------- */
-function norm(v){try{v=decodeURIComponent(String(v||""))}catch(e){v=String(v||"")}return v.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
-function getSlug(){
-  var q=new URLSearchParams(location.search),value=q.get("g")||q.get("id")||"";
-  if(!value){q.forEach(function(v,k){if(!value&&v===""&&k!=="gist"&&k!=="file"&&k!=="lang")value=k})}
-  if(!value){var parts=location.pathname.split("/").filter(Boolean),last=parts[parts.length-1]||"";if(last&&!/\.html?$/i.test(last))value=last}
-  if(!value)value=location.hash.slice(1);
-  return norm(value);
-}
-slug=getSlug();
-function youtubeId(v){var m=String(v||"").match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);return m?m[1]:""}
-function setText(id,v){var el=$(id);if(el)el.textContent=v||""}
-function warmDestination(url){try{var u=new URL(url,location.href);if(u.origin===location.origin)return;["dns-prefetch","preconnect"].forEach(function(rel){var l=document.createElement("link");l.rel=rel;l.href=u.origin;if(rel==="preconnect")l.crossOrigin="anonymous";document.head.appendChild(l)})}catch(e){}}
-var errState=null;
-function showErr(tk,mk,vars){errState={t:tk,m:mk,v:vars};paintErr()}
-function clearErr(){errState=null;paintErr()}
-function paintErr(){var e=$("err");if(!errState){e.classList.remove("show");return}setText("errT",t(errState.t));setText("errM",t(errState.m,errState.v));e.classList.add("show")}
-function findItem(data){var links=data&&Array.isArray(data.links)?data.links:[];var on=links.filter(function(x){return x&&x.active!==false});return on.find(function(x){return norm(x.slug)===slug})||on.find(function(x){return norm(x.id)===slug||norm(x.name)===slug})||null}
-
-function renderGame(){
-  if(!current){
-    if(!slug){setText("name","Nexus Link");setText("subtitle",t("home_sub"))}
-    else if(!errState){setText("name",t(shownAttempt?"confirming":"loading_game"));setText("subtitle",t("finding"))}
-    paintErr();return;
-  }
-  var L=localized(current),name=current.name||slug;
-  setText("name",name);setText("subtitle",L.subtitle);setText("nlGame",name);setText("loadingGameName",name);
-  setText("description",L.description||t("default_desc"));
-  document.title=name+" · "+t("title_suffix");
-  var cover=$("cover");
-  if(current.image){if(!cover.firstChild||cover.firstChild.getAttribute("data-src")!==current.image){cover.innerHTML="";var im=document.createElement("img");im.setAttribute("data-src",current.image);im.src=current.image;im.alt=t("cover_alt")+" "+name;im.decoding="async";cover.appendChild(im)}else{cover.firstChild.alt=t("cover_alt")+" "+name}cover.classList.add("show")}
-  else{cover.innerHTML="";cover.classList.remove("show")}
-  var yt=youtubeId(current.videoUrl),box=$("youtube"),vs=$("video");
-  if(current.videoEnabled&&yt){var src="https://www.youtube-nocookie.com/embed/"+yt;var f=box.firstChild;if(!f||f.getAttribute("src")!==src){box.innerHTML="";f=document.createElement("iframe");f.setAttribute("allowfullscreen","");f.title=t("video_title");f.src=src;f.loading="lazy";box.appendChild(f)}else{f.title=t("video_title")}vs.classList.add("show")}
-  else{box.innerHTML="";vs.classList.remove("show")}
-}
-function applyItem(item,data){
-  if(!item.url){current=null;showErr("err_nolink_t","err_nolink_m");setBtnRaw("↓",t("btn_unavailable"),t("btn_unavailable_d"));return false}
-  var first=!current;current=item;clearErr();
-  try{window.NexusStats.init(data&&data.config)}catch(e){}
-  warmDestination(item.url);renderGame();
-  if(state==="idle"||state==="ready2"||state==="ready3"||first)showLabel();
-  return true;
-}
-var shownAttempt=0;
-
-/* ---------- Carga (RAW → API → copia local) ---------- */
-function timed(url,opts,ms){opts=opts||{};var ctl=window.AbortController?new AbortController():null,tm=null;if(ctl){opts.signal=ctl.signal;tm=setTimeout(function(){ctl.abort()},ms||8000)}return fetch(url,opts).then(function(r){if(tm)clearTimeout(tm);return r},function(e){if(tm)clearTimeout(tm);throw e})}
-function parseData(txt){var d=typeof txt==="string"?JSON.parse(txt):txt;if(!d||!Array.isArray(d.links))throw new Error("format");return d}
-function fromRaw(){return timed("https://gist.githubusercontent.com/"+GIST_USER+"/"+GIST_ID+"/raw/"+encodeURIComponent(FILE)+"?t="+Date.now()+Math.random().toString(36).slice(2,6),{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error("raw "+r.status);return r.text()}).then(parseData)}
-function fromApi(){return timed("https://api.github.com/gists/"+GIST_ID+"?nocache="+Date.now(),{headers:{Accept:"application/vnd.github+json"},cache:"no-store"}).then(function(r){if(!r.ok)throw new Error("api "+r.status);return r.json()}).then(function(g){var f=g.files&&(g.files[FILE]||g.files[Object.keys(g.files)[0]]);if(!f)throw new Error("nofile");if(f.truncated&&f.raw_url)return timed(f.raw_url,{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error("raw2");return r.text()}).then(parseData);return parseData(f.content)})}
-function fromLocal(){return timed("acortador.json?t="+Date.now(),{cache:"no-store"},6000).then(function(r){if(!r.ok)throw new Error("local");return r.text()}).then(parseData)}
-function saveCache(d){try{localStorage.setItem(CACHE_KEY,JSON.stringify({t:Date.now(),d:d}))}catch(e){}}
-function readCache(){try{var c=JSON.parse(localStorage.getItem(CACHE_KEY)||"null");return c&&c.d&&Array.isArray(c.d.links)?c.d:null}catch(e){return null}}
-function gistData(preferApi){var order=preferApi?[fromApi,fromRaw,fromLocal]:[fromRaw,fromApi,fromLocal],i=0,last=null;function next(){if(i>=order.length)return Promise.reject(last||new Error("offline"));var fn=order[i++];return fn().then(function(d){saveCache(d);return d},function(e){last=e;return next()})}return next()}
-function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
-function readPublished(attempt,silent){
-  attempt=attempt||0;if(!silent&&!current){shownAttempt=attempt;renderGame()}
-  return gistData(attempt%2===1).then(function(data){
-    var item=findItem(data);if(item)return applyItem(item,data);
-    if(attempt<RETRY_DELAYS.length-1)return wait(RETRY_DELAYS[attempt]).then(function(){return readPublished(attempt+1,silent)});
-    if(!current){showErr("err_nf_t","err_nf_m",{slug:slug});setBtnRaw("↓",t("btn_unavailable"),t("btn_unavailable_d"))}
-    return false;
-  }).catch(function(){
-    if(attempt<RETRY_DELAYS.length-1)return wait(RETRY_DELAYS[attempt]).then(function(){return readPublished(attempt+1,silent)});
-    if(!silent&&!current){showErr("err_load_t","err_load_m");setBtnRaw("↓",t("btn_unavailable"),t("btn_unavailable_d"))}
-    return false;
+/* catálogo (desde el Gist) */
+function loc(g){var o={subtitle:g.subtitle||""},tr=g.i18n&&g.i18n[lang];if(lang!=="es"&&tr&&typeof tr.subtitle==="string"&&tr.subtitle.trim())o.subtitle=tr.subtitle;return o}
+function renderCatalog(){
+  var box=$("cat"),msg=$("catMsg");box.innerHTML="";
+  if(!games.length){msg.hidden=false;msg.textContent=t(loaded?"cat_empty":"cat_loading");return}
+  msg.hidden=true;
+  games.slice(0,9).forEach(function(g){
+    var a=document.createElement("a");a.className="game";a.href="/"+encodeURIComponent(g.slug);
+    var cv=document.createElement("div");cv.className="cv";
+    if(g.image&&/^https?:\/\//i.test(g.image)){var im=document.createElement("img");im.src=g.image;im.alt="";im.loading="lazy";im.decoding="async";im.onerror=function(){cv.removeChild(im);cv.textContent=(g.name||"?").charAt(0).toUpperCase()};cv.appendChild(im)}else cv.textContent=(g.name||"?").charAt(0).toUpperCase();
+    var bd=document.createElement("div");bd.className="bd";
+    var b=document.createElement("b");b.textContent=g.name||g.slug;var s=document.createElement("small");s.textContent=loc(g).subtitle;
+    var go=document.createElement("span");go.className="go";go.textContent=t("cat_open")+" →";
+    bd.appendChild(b);if(s.textContent)bd.appendChild(s);bd.appendChild(go);a.appendChild(cv);a.appendChild(bd);box.appendChild(a);
   });
 }
-window.NexusLink={get:function(){return current}};
-
-/* ---------- Contador anónimo (solo si hay statsUrl en el Gist) ---------- */
-window.NexusStats=(function(){var url="",sent={},dnt=(navigator.doNotTrack==="1"||window.doNotTrack==="1");
- function send(ev){var c=current,g=(c&&c.slug)||slug;if(!url||!g||dnt)return;try{var body=JSON.stringify({g:g,e:ev});if(navigator.sendBeacon){navigator.sendBeacon(url+"/hit",body)}else{fetch(url+"/hit",{method:"POST",body:body,keepalive:true,mode:"no-cors"})}}catch(e){}}
- function init(cfg){if(cfg&&typeof cfg.statsUrl==="string"&&/^https:\/\//.test(cfg.statsUrl))url=cfg.statsUrl.replace(/\/+$/,"");if(url&&!sent.view&&current){sent.view=1;send("view")}}
- return{init:init,track:send}})();
-
-/* ---------- Flujo de descarga (3 pasos) ---------- */
-var dl=$("download"),arrow=dl.querySelector(".download-arrow"),txt=$("buttonText"),det=$("buttonDetail"),hint=$("nlHint");
-var ringFg=$("nlRingFg"),ringNum=$("nlRingNum"),stTitle=$("nlStTitle"),stSub=$("nlStSub"),stKick=$("nlStKick");
-var C=2*Math.PI*52;ringFg.style.strokeDasharray=C;ringFg.style.strokeDashoffset=C;
-var timer=null,fb=null,hiddenSeen=false,left=0,stageDone=false,btnMode="label";
-function setHint(k){hint.textContent=t("hint_"+k)}
-function setBtnRaw(a,tx,d){arrow.textContent=a;txt.textContent=tx;det.textContent=d||""}
-function showLabel(){
-  btnMode="label";
-  if(!current){if(errState&&errState.t!=="err_nolink_t"||errState&&errState.t==="err_nolink_t"){setBtnRaw("↓",t("btn_unavailable"),t("btn_unavailable_d"))}else if(!slug){setBtnRaw("↓",t("btn_waiting_link"),t("btn_waiting_link_d"))}else{setBtnRaw("↓",t("btn_preparing_link"),t("btn_wait_moment"))}return}
-  var L=localized(current);
-  setBtnRaw("↓",L.buttonText||(t("btn_download")+" "+(current.name||"")).trim(),[current.name,L.subtitle].filter(Boolean).join(" · "));
+/* estadísticas reales */
+function renderStats(){
+  $("kGames").textContent=loaded?nf(games.length):"–";
+  if(!pub)return;
+  document.querySelectorAll("[data-live]").forEach(function(e){e.hidden=false});$("stLive").hidden=false;$("kpis").classList.add("live");
+  $("kUsersToday").textContent=nf(pub.usersToday);$("kUsers").textContent=nf(pub.users);$("kDl").textContent=nf(pub.downloads);$("kViews").textContent=nf(pub.views);$("kCountries").textContent=nf(pub.countries);
+  var by={};(pub.week||[]).forEach(function(r){if(r.e==="uv")by[r.day]=r.n});
+  var days=[],max=1,i,p=String(pub.today||"").split("-");
+  if(p.length===3){for(i=6;i>=0;i--){var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]-i)),k=d.toISOString().slice(0,10);days.push([k,by[k]||0,d]);if((by[k]||0)>max)max=by[k]}}
+  var bars=$("bars");bars.innerHTML="";
+  days.forEach(function(x){var c=document.createElement("div"),v=document.createElement("strong"),bar=document.createElement("i"),l=document.createElement("em");v.textContent=nf(x[1]);bar.style.height=Math.max(4,Math.round(x[1]/max*100))+"px";l.textContent=x[0].slice(8)+"/"+x[0].slice(5,7);c.appendChild(v);c.appendChild(bar);c.appendChild(l);bars.appendChild(c)});
+  var rk=$("rank");rk.innerHTML="";
+  (pub.top||[]).forEach(function(r){var g=bySlug[r.g];if(!g)return;var li=document.createElement("li"),s=document.createElement("span"),m=document.createElement("small");s.textContent=g.name||g.slug;m.textContent=nf(r.n)+" "+t("st_visits");li.appendChild(s);li.appendChild(m);rk.appendChild(li)});
+  if(!rk.children.length)rk.parentNode.hidden=true;else rk.parentNode.hidden=false;
 }
-function paintCount(){btnMode="count";setBtnRaw(left,t("btn_preparing"),t(left===1?"btn_wait_1":"btn_wait_n",{n:left}))}
-function setState(k){state=k;setHint(k)}
-function paint(f){
-  var h=Math.round(28+114*f),h2=h+18;
-  dl.style.setProperty("background","linear-gradient(120deg,hsl("+h+",85%,30%) 0%,hsl("+h+",88%,42%) 55%,hsl("+h2+",92%,50%) 100%)","important");
-  ringFg.style.stroke="hsl("+h+",85%,52%)";ringFg.style.strokeDashoffset=String(C*(1-f));
+var loaded=false,statsUrl="";
+function timed(u,ms){var c=window.AbortController?new AbortController():null,tm=c&&setTimeout(function(){c.abort()},ms||8000);return fetch(u,{cache:"no-store",signal:c&&c.signal}).then(function(r){clearTimeout(tm);if(!r.ok)throw new Error("http");return r})}
+function loadGist(){
+  return timed("https://gist.githubusercontent.com/"+GIST_USER+"/"+GIST_ID+"/raw/"+FILE+"?t="+Date.now()).then(function(r){return r.json()})
+   .catch(function(){return timed("https://api.github.com/gists/"+GIST_ID+"?t="+Date.now()).then(function(r){return r.json()}).then(function(g){var f=g.files&&(g.files[FILE]||g.files[Object.keys(g.files)[0]]);return JSON.parse(f.content)})})
+   .then(function(d){
+     var list=(d&&Array.isArray(d.links)?d.links:[]).filter(function(x){return x&&x.active!==false&&x.slug&&x.name});
+     games=list;bySlug={};list.forEach(function(g){bySlug[g.slug]=g});
+     var u=d&&d.config&&d.config.statsUrl;statsUrl=(typeof u==="string"&&/^https:\/\//.test(u))?u.replace(/\/+$/,""):"";
+     loaded=true;renderCatalog();renderStats();
+   }).catch(function(){loaded=true;renderCatalog();renderStats()});
 }
-function unpaint(){dl.style.removeProperty("background")}
-function count(sec,k,next){
-  setState(k);dl.classList.add("nl-counting");dl.setAttribute("href","#");
-  var start=Date.now(),total=sec*1000;
-  function tick(){
-    var el=Date.now()-start,f=Math.min(1,el/total);left=Math.max(0,Math.ceil((total-el)/1000));
-    if(el>=total){clearInterval(timer);dl.classList.remove("nl-counting");unpaint();next();return}
-    paint(f);paintCount();
-    if(k==="c2"){ringNum.textContent=left;stSub.textContent=t("stage_sub2",{n:left})}
-  }
-  clearInterval(timer);tick();timer=setInterval(tick,100);
+function loadPub(){if(!statsUrl)return;timed(statsUrl+"/public",8000).then(function(r){return r.json()}).then(function(s){if(s&&typeof s.views==="number"){pub=s;renderStats()}}).catch(function(){})}
+/* conteo anónimo de esta página y del usuario del día */
+function track(){
+  if(!statsUrl||navigator.doNotTrack==="1")return;
+  function post(g,e){try{var b=JSON.stringify({g:g,e:e});if(navigator.sendBeacon)navigator.sendBeacon(statsUrl+"/hit",b);else fetch(statsUrl+"/hit",{method:"POST",body:b,keepalive:true,mode:"no-cors"})}catch(x){}}
+  post("sitio-inicio","view");
+  var d=new Date(),k=d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();try{if(localStorage.getItem("nexus-uv")!==k){localStorage.setItem("nexus-uv",k);post("all","uv")}}catch(e){}
 }
-function ready(k,href){dl.setAttribute("href",href);setState(k);showLabel()}
-function paintStage(){
-  if(!document.body.classList.contains("nl-stage2"))return;
-  if(stageDone){stKick.textContent=t("kick3");stTitle.textContent=t("stage_title3");stSub.textContent=t("stage_sub3")}
-  else{stKick.textContent=t("kick2");stTitle.textContent=t("stage_title2");stSub.textContent=t("stage_sub2",{n:left||T2})}
-}
-function enterStage2(){
-  document.body.classList.add("nl-stage2");stageDone=false;left=T2;
-  ringFg.style.strokeDashoffset=C;ringNum.textContent=T2;paintStage();
-  try{window.scrollTo(0,0)}catch(e){}
-}
-function finishStage2(){
-  stageDone=true;ringFg.style.stroke="hsl(142,70%,45%)";ringFg.style.strokeDashoffset="0";ringNum.textContent="✓";paintStage();
-}
-/* Reescribe los textos que dependen del idioma sin reiniciar el flujo */
-function refreshFlowText(){
-  setHint(state==="w1"||state==="w2"?"ready"+(state==="w1"?2:3):state);
-  paintStage();
-  if(btnMode==="count")paintCount();else showLabel();
-  if(errState)paintErr();
-}
-function proceed(w){clearTimeout(fb);if(state!==w)return;
-  if(w==="w1"){enterStage2();count(T2,"c2",function(){ready("ready3",AD2);finishStage2()})}
-  else{redirect()}
-}
-function goAd(w){state=w;hiddenSeen=document.hidden===true;clearTimeout(fb);
-  /* si la pestaña del anuncio no toma el foco, seguimos igual a los 4 s */
-  fb=setTimeout(function(){if(!hiddenSeen)proceed(w)},4000);
-}
-function redirect(){
-  var c=current;if(!c||!c.url)return;setState("redirecting");
-  try{window.NexusStats.track("dl")}catch(x){}
-  var fl=$("finalLoading");fl.classList.add("open");
-  setTimeout(function(){window.location.href=c.url},900);
-  /* si el destino no abre, no dejamos la pantalla de carga girando */
-  setTimeout(function(){fl.classList.remove("open")},8000);
-}
-document.addEventListener("visibilitychange",function(){
-  if(document.hidden){hiddenSeen=true;return}
-  var fl=$("finalLoading");if(fl.classList.contains("open"))setTimeout(function(){fl.classList.remove("open")},600);
-  if(hiddenSeen&&(state==="w1"||state==="w2")){var w=state;setTimeout(function(){proceed(w)},400)}
-});
-window.addEventListener("focus",function(){if(hiddenSeen&&(state==="w1"||state==="w2")){var w=state;setTimeout(function(){proceed(w)},400)}});
-window.addEventListener("pageshow",function(e){if(e.persisted)location.reload()});
-dl.addEventListener("click",function(e){
-  var c=current;if(!c||!c.url){e.preventDefault();return}
-  if(state==="idle"){e.preventDefault();try{window.NexusStats.track("start")}catch(x){}count(T1,"c1",function(){ready("ready2",AD1)});return}
-  /* ready2 / ready3: el enlace nativo abre el anuncio en pestaña nueva con un clic real del usuario */
-  if(state==="ready2"){try{window.NexusStats.track("ad1")}catch(x){}goAd("w1");return}
-  if(state==="ready3"){try{window.NexusStats.track("ad2")}catch(x){}goAd("w2");return}
-  e.preventDefault();
-});
-
-/* ---------- Inicio ---------- */
-$("footLogo").src=$("brandLogo").src;$("loadLogo").src=$("brandLogo").src;
-staticText();paintLangUI();setState("idle");showLabel();
-if(slug){
-  try{var clean=location.pathname.replace(/[^\/]*$/,"")+"?g="+encodeURIComponent(slug);if(location.search!=="?g="+encodeURIComponent(slug))history.replaceState(null,"",clean)}catch(e){}
-  var c0=readCache();if(c0){var it0=findItem(c0);if(it0)applyItem(it0,c0)}
-  readPublished(0,false);
-  setTimeout(function(){if(!current&&!errState){showErr("err_load_t","err_slow_m")}},30000);
-  var poll=null;
-  function startPoll(){if(poll)return;poll=setInterval(function(){readPublished(RETRY_DELAYS.length-1,true)},300000)}
-  function stopPoll(){if(poll){clearInterval(poll);poll=null}}
-  startPoll();
-  document.addEventListener("visibilitychange",function(){if(document.hidden){stopPoll()}else{readPublished(RETRY_DELAYS.length-1,true);startPoll()}});
-}else{renderGame()}
+$("footLogo").src=$("brandLogo").src;
+staticText();paintLang();renderCatalog();renderStats();
+loadGist().then(function(){track();loadPub();setInterval(function(){if(!document.hidden)loadPub()},30000)});
 })();
 </script>
-<script data-cfasync="false" src="https://bellnewyork.org/14/6f9bd21364d33975763736f4d9d8500e"></script>
 </body>
 </html>

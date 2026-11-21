@@ -3,7 +3,9 @@
  * Variables: binding D1 = DB  ·  variable de texto ALLOWED_USER = tu usuario de GitHub (ej. JoelDroidModsYT)
  * No guarda IP ni datos personales: solo contadores por día / juego / país.
  */
-const EVENTS = ["view", "start", "ad1", "ad2", "dl"];
+const EVENTS = ["view", "start", "ad1", "ad2", "dl", "uv"]; // uv = usuario único del día (por dispositivo)
+const SITE = "all", HOME = "sitio-inicio"; // contadores del sitio completo y de la página de inicio
+let OFF = -5; // zona horaria: -5 = Lima. Cambia con la variable TZ_OFFSET si lo necesitas
 const CORS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
@@ -13,7 +15,7 @@ const CORS = {
 const json = (o, status = 200, extra = {}) =>
   new Response(JSON.stringify(o), { status, headers: { "Content-Type": "application/json", "Cache-Control": "no-store", ...CORS, ...extra } });
 
-const day = (d) => d.toISOString().slice(0, 10);
+const day = (d) => new Date(d.getTime() + OFF * 3600000).toISOString().slice(0, 10);
 
 async function init(db) {
   await db.batch([
@@ -38,6 +40,7 @@ export default {
     const url = new URL(request.url);
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
     const db = env.DB;
+    if (env.TZ_OFFSET !== undefined && !isNaN(Number(env.TZ_OFFSET))) OFF = Number(env.TZ_OFFSET);
     ctx.waitUntil(init(db));
 
     // ---- Registrar evento ----
@@ -63,15 +66,25 @@ export default {
       return json({ ok: true });
     }
 
-    // ---- Totales públicos (para inicio.html) ----
+    // ---- Totales públicos (para la página de inicio) ----
     if (url.pathname === "/public" && request.method === "GET") {
       await init(db);
-      const t = await db.prepare("SELECT e, SUM(n) n FROM daily GROUP BY e").all();
-      const o = { view: 0, start: 0, ad1: 0, ad2: 0, dl: 0 };
+      const today = day(new Date()), since = day(new Date(Date.now() - 6 * 86400000));
+      const [t, gm, cm, todayRows, week, top] = await Promise.all([
+        db.prepare("SELECT e, SUM(n) n FROM daily WHERE g != ? GROUP BY e").bind(HOME).all(),
+        db.prepare("SELECT COUNT(DISTINCT g) n FROM daily WHERE g NOT IN (?, ?)").bind(SITE, HOME).first(),
+        db.prepare("SELECT COUNT(DISTINCT cc) n FROM daily WHERE cc != 'XX'").first(),
+        db.prepare("SELECT e, SUM(n) n FROM daily WHERE day = ? AND g != ? GROUP BY e").bind(today, HOME).all(),
+        db.prepare("SELECT day, e, SUM(n) n FROM daily WHERE day >= ? AND e IN ('uv','dl') AND g != ? GROUP BY day, e").bind(since, HOME).all(),
+        db.prepare("SELECT g, SUM(n) n FROM daily WHERE e='view' AND g NOT IN (?, ?) GROUP BY g ORDER BY n DESC LIMIT 5").bind(SITE, HOME).all(),
+      ]);
+      const o = { view: 0, start: 0, ad1: 0, ad2: 0, dl: 0, uv: 0 }, td = { view: 0, dl: 0, uv: 0 };
       (t.results || []).forEach((r) => (o[r.e] = r.n));
-      const gm = await db.prepare("SELECT COUNT(DISTINCT g) n FROM daily").first();
-      const cm = await db.prepare("SELECT COUNT(DISTINCT cc) n FROM daily WHERE cc != 'XX'").first();
-      return json({ views: o.view, downloads: o.dl, games: gm ? gm.n : 0, countries: cm ? cm.n : 0, updated: Date.now() }, 200, { "Cache-Control": "public, max-age=30" });
+      (todayRows.results || []).forEach((r) => (td[r.e] = r.n));
+      return json({
+        views: o.view, downloads: o.dl, users: o.uv, usersToday: td.uv, downloadsToday: td.dl,
+        games: gm ? gm.n : 0, countries: cm ? cm.n : 0, week: week.results || [], top: top.results || [], today, updated: Date.now(),
+      }, 200, { "Cache-Control": "public, max-age=30" });
     }
 
     // ---- Estadísticas completas (solo tú, con tu token de GitHub) ----
@@ -84,16 +97,17 @@ export default {
       const m = Math.floor(Date.now() / 60000);
       const [byGame, byDay, byCountry, now5, nowGames] = await Promise.all([
         db.prepare("SELECT g, e, SUM(n) n FROM daily GROUP BY g, e").all(),
-        db.prepare("SELECT day, e, SUM(n) n FROM daily WHERE day >= ? GROUP BY day, e").bind(since).all(),
+        db.prepare("SELECT day, e, SUM(n) n FROM daily WHERE day >= ? AND g != ? GROUP BY day, e").bind(since, HOME).all(),
         db.prepare("SELECT cc, SUM(n) n FROM daily WHERE e='view' GROUP BY cc ORDER BY n DESC LIMIT 15").all(),
         db.prepare("SELECT COALESCE(SUM(n),0) n FROM minute WHERE m >= ?").bind(m - 4).first(),
         db.prepare("SELECT g, SUM(n) n FROM minute WHERE m >= ? GROUP BY g ORDER BY n DESC LIMIT 5").bind(m - 4).all(),
       ]);
-      const todayRows = await db.prepare("SELECT e, SUM(n) n FROM daily WHERE day = ? GROUP BY e").bind(today).all();
+      const todayRows = await db.prepare("SELECT e, SUM(n) n FROM daily WHERE day = ? AND g != ? GROUP BY e").bind(today, HOME).all();
+      const home = await db.prepare("SELECT COALESCE(SUM(CASE WHEN day = ? THEN n END),0) today, COALESCE(SUM(n),0) total FROM daily WHERE g = ? AND e = 'view'").bind(today, HOME).first();
       return json({
         ok: true, today,
         games: byGame.results || [], days: byDay.results || [], countries: byCountry.results || [],
-        todayTotals: todayRows.results || [], now5: now5 ? now5.n : 0, nowGames: nowGames.results || [], updated: Date.now(),
+        todayTotals: todayRows.results || [], home: home || { today: 0, total: 0 }, now5: now5 ? now5.n : 0, nowGames: nowGames.results || [], updated: Date.now(),
       });
     }
 
