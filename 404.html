@@ -94,6 +94,7 @@ body.nl-stage2 .download{margin-top:10px;padding:16px}
 html[data-theme=dark] .err{background:#2a1118;border-color:#5b2230;color:#ffb3c0}
 .err.show{display:block}.err b{display:block}.err p{margin:2px 0 0}
 
+/* El código de Adsterra se pega sin envolturas: el banner solo se centra y deja aire alrededor */
 
 
 
@@ -323,7 +324,7 @@ function setLang(c){
   if($("docLayer").classList.contains("open")&&openDocKey)openDoc(openDocKey);
 }
 function closeLangMenu(){$("langMenu").hidden=true;$("langBtn").setAttribute("aria-expanded","false")}
-$("langBtn").onclick=function(e){e.stopPropagation();var m=$("langMenu"),open=m.hidden;m.hidden=!open;this.setAttribute("aria-expanded",String(open))};
+$("langBtn").onclick=function(e){var m=$("langMenu"),open=m.hidden;m.hidden=!open;this.setAttribute("aria-expanded",String(open))};
 document.addEventListener("click",function(e){if(!$("langMenu").hidden&&!$("langMenu").contains(e.target))closeLangMenu()});
 
 /* ---------- Tema ---------- */
