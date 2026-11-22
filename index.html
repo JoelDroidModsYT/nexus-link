@@ -3,6 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>
+/* Enrutador: el dominio solo muestra el inicio. Cualquier enlace de juego (/nombre, ?g=nombre, ?id=nombre, ?nombre o #nombre) abre la página de descarga */
+(function(){
+var q=new URLSearchParams(location.search),slug="",key="";
+slug=q.get("g")||q.get("id")||"";
+q.forEach(function(v,k){if(!slug&&v===""&&k!=="gist"&&k!=="file"&&k!=="lang")slug=k});
+var hh=location.hash.slice(1);if(!slug&&hh&&!/^(que-hacemos|como-funciona|preguntas|estadisticas)$/.test(hh))slug=hh;
+if(!slug){var seg=location.pathname.split("/").filter(Boolean).filter(function(p){return !/\.html?$/i.test(p)});if(seg.length&&!/^(inicio|index|home)$/i.test(seg[0]))slug=seg[seg.length-1]}
+if(!slug)return;
+location.replace("/404.html?g="+encodeURIComponent(slug))
+})();
+</script>
 <!-- AdMaven: dentro de <head>, tal como indica su ayuda -->
 <script data-cfasync="false" src="https://d7oc8z3lu6svo.cloudfront.net/?lzcod=1735632"></script>
 <title>Nexus Link · Plataforma de enlaces</title>
